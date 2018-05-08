@@ -1,0 +1,42 @@
+<!doctype html>
+<html ng-app="app">
+<head>
+    <title>Hello AngularJS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="js/app.js"></script>
+    <style>
+a {
+	cursor: pointer;
+	background-color: lightblue;
+}
+</style>
+</head>
+
+<body>
+<div ng-controller="CRUDCtrl">
+    <table>
+        <tr>
+            <td width="100">ID:</td>
+            <td><input type="text" id="employeeId" ng-model="employee.employeeId" /></td>
+        </tr>
+        <tr>
+            <td width="100">Name:</td>
+            <td><input type="text" id="firstName" ng-model="employee.firstName" /></td>
+        </tr>
+        <tr>
+            <td width="100">Age:</td>
+            <td><input type="text" id="age" ng-model="employee.age" /></td>
+        </tr>
+    </table>
+
+    <a ng-click="getEmployee(employee.id)">Get User</a>
+    <a ng-click="updateEmployee(employee.employeeId,employee.firstName,employee.age)">Update User</a><br>
+    <a ng-click="addEmployee(employee.firstName,employee.age)">Add User</a><br>
+    <a ng-click="deleteEmployee(employee.employeeId)">Delete User</a><br>
+    <a ng-click="getAllEmployees()">Get all Users</a><br/><br/>
+    <div ng-repeat="employee in employees">
+        {{employee.id}} {{employee.firstName}} {{employee.employeeId}}{{employee.joiningDate}}
+    </div>
+</div>
+</body>
+</html>
