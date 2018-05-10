@@ -80,7 +80,7 @@ app.controller('CRUDCtrl', ['$scope','EmployeeCRUDService',
       };
       $scope.updateEmployee = function () {
           EmployeeCRUDService.updateEmployee($scope.employee.id,
-            $scope.Employee.name, $scope.employee.email)
+            $scope.Employee.firstName, $scope.employee.email)
             .then(function success(response) {
                 $scope.message = 'Employee data updated!';
                 $scope.errorMessage = '';
@@ -105,7 +105,7 @@ app.controller('CRUDCtrl', ['$scope','EmployeeCRUDService',
       $scope.getAllEmployees = function () {
           EmployeeCRUDService.getAllEmployees()
             .then(function success(response) {
-                $scope.employees = response.data._embedded.employees;
+                $scope.employees = response.data;
                 $scope.message='';
                 $scope.errorMessage = '';
             },

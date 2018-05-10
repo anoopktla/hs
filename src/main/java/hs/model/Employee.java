@@ -1,4 +1,4 @@
-package hs;
+package hs.model;
 
 import org.springframework.data.annotation.Id;
 
