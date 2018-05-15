@@ -115,3 +115,4 @@ app.controller('CRUDCtrl', ['$scope','EmployeeCRUDService',
             });
       };
 }]);
+

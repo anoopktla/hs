@@ -1,9 +1,11 @@
 package hs.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 
+@Document(collection = "Employees")
 public class Employee {
 
     @Id private String id;
@@ -13,6 +15,25 @@ public class Employee {
     private String employeeId;
     private String age;
     private Date joiningDate;
+    private Address address;
+    private EmploymentDetails employmentDetails;
+
+
+    public EmploymentDetails getEmploymentDetails() {
+        return employmentDetails;
+    }
+
+    public void setEmploymentDetails(EmploymentDetails employmentDetails) {
+        this.employmentDetails = employmentDetails;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
 
     public String getAge() {
         return age;
