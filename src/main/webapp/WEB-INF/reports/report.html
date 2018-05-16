@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+
     <title>Title</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,37 +15,60 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
     <script src="js/app.js"></script>
-    <style>html {
-  height: 100%;
-}
-html body {
-  height: 100%;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-html body .container-fluid.body-content {
-  width: 100%;
-  overflow-y: auto;
-}
-header {
-    border:2px;
-    min-height: 50px;
+    <style>
+div.container {
     width: 100%;
+    border: 1px solid gray;
 }
-footer {
-    border:2px;
-    min-height: 30px;
-    width: 100%;
-}</style>
+
+header, footer {
+    padding: 1em;
+    color: white;
+    background-color: black;
+    clear: left;
+    text-align: center;
+}
+
+nav {
+    float: left;
+    max-width: 160px;
+    margin: 0;
+    padding: 1em;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul a {
+    text-decoration: none;
+}
+
+article {
+    border-left: 1px solid gray;
+    padding: 1em;
+    overflow: hidden;
+}
+</style>
 </head>
 <body>
-<header><h1>Header</h1></header>
-<div class="container-fluid body-content">
+<div class="container">
 
-    <div class="row">body</div>
+    <header>
+        <div class="row"><div class="column"> <h1>Header</h1></div>
+            <div class="column">
+                <img src="/images/logo.png"></div>
+            </div>
+    </header>
+
+       <article>
+        <h1>Title</h1>
+        <p>content
+    </article>
+
+    <footer>footer</footer>
 
 </div>
-<footer> footer</footer>
 </body>
 </html>
