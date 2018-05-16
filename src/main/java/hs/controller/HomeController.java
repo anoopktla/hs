@@ -11,4 +11,9 @@ public class HomeController {
         return "index";
     }
 
+    @RequestMapping("/reports/report")
+    public String reports() {
+        return "/reports/report";
+    }
+
 }
