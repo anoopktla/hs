@@ -3,6 +3,7 @@ package hs.controller;
 import hs.exception.ResourceNotFoundException;
 import hs.model.Employee;
 import hs.dao.EmployeeRepository;
+import hs.model.Name;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -37,8 +38,8 @@ public class EmployeeController {
         Employee employee = employeeRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("employees", "id", id));
 
-        employee.setFirstName(employee.getFirstName());
-        employee.setAge(employee.getAge());
+        employee.setName(new Name(employee.getName().getFirstName(),employee.getName().getLastName(),employee.getName().getSalutation()));
+
 
         return employeeRepository.save(employee);
 

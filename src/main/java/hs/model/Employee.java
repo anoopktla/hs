@@ -10,14 +10,28 @@ public class Employee {
 
     @Id private String id;
 
-    private String firstName;
-    private String lastName;
+    private Name name;
     private String employeeId;
-    private String age;
     private Date joiningDate;
     private Address address;
     private EmploymentDetails employmentDetails;
+    private PersonalDetails personalDetails;
 
+    public Name getName() {
+        return name;
+    }
+
+    public void setName(Name name) {
+        this.name = name;
+    }
+
+    public PersonalDetails getPersonalDetails() {
+        return personalDetails;
+    }
+
+    public void setPersonalDetails(PersonalDetails personalDetails) {
+        this.personalDetails = personalDetails;
+    }
 
     public EmploymentDetails getEmploymentDetails() {
         return employmentDetails;
@@ -33,14 +47,6 @@ public class Employee {
 
     public void setAddress(Address address) {
         this.address = address;
-    }
-
-    public String getAge() {
-        return age;
-    }
-
-    public void setAge(String age) {
-        this.age = age;
     }
 
     public String getId() {
@@ -67,19 +73,6 @@ public class Employee {
         this.joiningDate = joiningDate;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
 
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 }

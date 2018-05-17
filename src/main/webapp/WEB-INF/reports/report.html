@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="report">
 <head>
 
-    <title>Title</title>
+    <title>Hs</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,7 +14,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
-    <script src="js/app.js"></script>
+    <script src="../js/report.js"></script>
     <style>
 div.container {
     width: 100%;
@@ -23,10 +23,11 @@ div.container {
 
 header, footer {
     padding: 1em;
-    color: white;
-    background-color: black;
+
+
     clear: left;
     text-align: center;
+    border: 1px solid gray;
 }
 
 nav {
@@ -50,24 +51,57 @@ article {
     padding: 1em;
     overflow: hidden;
 }
+
 </style>
+<script>
+
+    var url_string = window.location.href
+var url = new URL(url_string);
+var id = url.searchParams.get("id");
+getEmployee(id)
+   alert( c );
+});
+</script>
 </head>
 <body>
-<div class="container">
+<div ng-controller="CRUDCtrl" class="container" data-ng-init="init()">
 
     <header>
-        <div class="row"><div class="column"> <h1>Header</h1></div>
-            <div class="column">
-                <img src="/images/logo.png"></div>
+        <div class="row"><div class="column" style="float:center;"> <h1>HS</h1></div>
+            <div class="column" style="float:right;">
+                <img src="/images/hslogo.png" height="150" width="90"></div>
             </div>
     </header>
 
-       <article>
-        <h1>Title</h1>
-        <p>content
+       <article><table>
+           <tr><td>Employee name</td><td>{{employee.name.firstName}}</td></tr>
+           <tr><td>Designation</td><td>XXXX</td></tr>
+           <tr><td>Father's name</td><td>XXXX</td></tr>
+           <tr><td>Pay date</td><td>XXXX</td></tr>
+           <tr><td>PAN</td><td>XXXX</td></tr>
+           <tr><td>DOJ</td><td>XXXX</td></tr>
+       </table>
+        <table border="1px;"><tr><td>Earnings</td><td>Amount</td><td>Deductions</td><td>Amount</td></tr>
+            <tr><td>Basic</td><td>XXXX</td><td>Tax/TDS</td><td>xxxx</td></tr>
+            <tr><td>HRA</td><td>XXXX</td><td></td><td> </td></tr>
+            <tr><td>Conveyance</td><td>XXXX</td><td> </td><td> </td></tr>
+            <tr><td>Special allowance</td><td>XXXX</td><td> </td><td> </td></tr>
+            <tr><td>Gross salary</td><td>XXXX</td><td>Total deductions</td><td>XXXX</td></tr>
+        </table>
+
     </article>
 
-    <footer>footer</footer>
+    <footer><div class="row">
+        <div class="col-lg-3"><p>Heidelsoft Tech. Pvt. Ltd.</p>
+            <p>Jyothirmaya Building</p>
+            <p>2nd Floor, Wing-2, Office–1,</p>
+            <p>Infopark SEZ Phase-II</p>
+            <p>Kerala– 682303, India</p>
+        </div>
+        <div class="col-lg-3"><p>Managing Director: </p><p>Dr. Joshy Parookkaran</p><p>Director :</p><p> Günter Wiskot</p> </div>
+        <div class="col-lg-3"><p>Bank : HDFC Bank</p><p>A/c    : 50200011022711</p><p>IFSC : HDFCINBBXXX</p></div>
+        <div class="col-lg-3"><p>Bank Address : </p><p>HDFC Bank</p><p>Palarivattom, Kochi</p><p>Kerala – 682025,</p><p>India </p></div></div>
+    </footer>
 
 </div>
 </body>

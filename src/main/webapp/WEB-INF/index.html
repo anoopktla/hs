@@ -24,7 +24,7 @@
         </tr>
         <tr>
             <td width="100">Name:</td>
-            <td><input type="text" id="firstName" ng-model="employee.firstName" /></td>
+            <td><input type="text" id="firstName" ng-model="employee.name.firstName" /></td>
         </tr>
         <tr>
             <td width="100">Age:</td>
@@ -49,9 +49,10 @@
     <a ng-click="getAllEmployees()">Get all Users</a><br/><br/>
     <div ng-repeat="employee in employees" class="panel panel-default">
         <div> ID:{{employee.id}} </div>
-        <div>Name :{{employee.firstName}}</div>
+        <div>Name :{{employee.name.firstName}}</div>
         <div>Emp id : {{employee.employeeId}}</div>
         <div>Joining date: {{employee.joiningDate}}</div>
+        <a href="/reports/report?id={{employee.id}}">view </a>
 
     </div>
 </div>
