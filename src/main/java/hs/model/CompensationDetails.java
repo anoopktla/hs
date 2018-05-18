@@ -6,6 +6,69 @@ public class CompensationDetails {
     private String pan;
     private String bankName;
     private Date payDate;
+    private int basicPay;
+    private int hra;
+    private int conveyance;
+    private  int specialAllowance;
+    private int grossSalary;
+    private int tds;
+    private int totalDeduction;
+
+    public int getBasicPay() {
+        return basicPay;
+    }
+
+    public void setBasicPay(int basicPay) {
+        this.basicPay = basicPay;
+    }
+
+    public int getHra() {
+        return hra;
+    }
+
+    public void setHra(int hra) {
+        this.hra = hra;
+    }
+
+    public int getConveyance() {
+        return conveyance;
+    }
+
+    public void setConveyance(int conveyance) {
+        this.conveyance = conveyance;
+    }
+
+    public int getSpecialAllowance() {
+        return specialAllowance;
+    }
+
+    public void setSpecialAllowance(int specialAllowance) {
+        this.specialAllowance = specialAllowance;
+    }
+
+    public int getGrossSalary() {
+        return grossSalary;
+    }
+
+    public void setGrossSalary(int grossSalary) {
+        this.grossSalary = grossSalary;
+    }
+
+    public int getTds() {
+        return tds;
+    }
+
+    public void setTds(int tds) {
+        this.tds = tds;
+    }
+
+    public int getTotalDeduction() {
+        return totalDeduction;
+    }
+
+    public void setTotalDeduction(int totalDeduction) {
+        this.totalDeduction = totalDeduction;
+    }
 
     public Date getPayDate() {
         return payDate;

@@ -1,18 +1,23 @@
 var app = angular.module('report',[]);
 app.service('EmployeeCRUDService', [ '$http', function($http) {
 
-    this.getEmployee = function getEmployee(employeeId) {
+ this.getEmployee = function getEmployee(employeeId) {
         return $http({
             method : 'GET',
-            url : 'employees/' + employeeId
+            url : '../employees/' + employeeId
         });
     }
+
+   }]);
 
     app.controller('CRUDCtrl', ['$scope','EmployeeCRUDService',
     function ($scope,EmployeeCRUDService) {
           $scope.getEmployee = function () {
-              var id = $scope.employee.id;
-              EmployeeCRUDService.getEmployee($scope.employee.id)
+
+          var url_string = window.location.href;
+          var url = new URL(url_string);
+          var id = url.searchParams.get("id");
+          EmployeeCRUDService.getEmployee(id)
                 .then(function success(response) {
                     $scope.employee = response.data;
                     $scope.employee.id = id;
@@ -30,13 +35,12 @@ app.service('EmployeeCRUDService', [ '$http', function($http) {
                 });
           };
            $scope.init = function () {
-                        var url_string = window.location.href
+                      var url_string = window.location.href
                       var url = new URL(url_string);
                       var id = url.searchParams.get("id");
-                      getEmployee(id);
-                         alert( c );
+                      alert( id );
                     };
 
 
 
-         );
+         }]);

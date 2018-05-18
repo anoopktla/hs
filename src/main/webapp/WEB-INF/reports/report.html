@@ -16,13 +16,48 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
     <script src="../js/report.js"></script>
     <style>
+
+
+    @media print /*--This is for Print--*/
+{
+    footer
+    {
+        display: none;
+    }
+
+}
+
+@media screen /*--This is for Print Preview Screen--*/
+{
+
+.footertbl {
+         display: none;
+}
+
+}
+
+.footertbl  td, th {
+    width: 554px;
+    padding-left: 10px;
+}
+
+
+
 div.container {
     width: 100%;
     border: 1px solid gray;
 }
 
-header, footer {
+header {
     padding: 1em;
+
+
+    clear: left;
+    text-align: center;
+    border: 1px solid gray;
+}
+footer {
+    padding: 0em;
 
 
     clear: left;
@@ -50,59 +85,90 @@ article {
     border-left: 1px solid gray;
     padding: 1em;
     overflow: hidden;
+    padding-top:6em;
+    padding-bottom:10em;
 }
 
-</style>
-<script>
+.footer-class {
+    width: 463px;
+    display: inline;
+    float: left;
+    }
 
-    var url_string = window.location.href
-var url = new URL(url_string);
-var id = url.searchParams.get("id");
-getEmployee(id)
-   alert( c );
-});
-</script>
+</style>
 </head>
-<body>
-<div ng-controller="CRUDCtrl" class="container" data-ng-init="init()">
+<div>
+<div ng-controller="CRUDCtrl" class="container" data-ng-init="getEmployee()">
 
     <header>
-        <div class="row"><div class="column" style="float:center;"> <h1>HS</h1></div>
-            <div class="column" style="float:right;">
-                <img src="/images/hslogo.png" height="150" width="90"></div>
+        <div class="row">
+            <div class="col-md-11" > <h3>Heidelsoft Technologies pvt ltd</h3></div>
+            <div class="col-md-1" style="float:right;">
+                <img src="/images/hslogo.png" height="100" width="150"></div>
             </div>
     </header>
 
        <article><table>
-           <tr><td>Employee name</td><td>{{employee.name.firstName}}</td></tr>
-           <tr><td>Designation</td><td>XXXX</td></tr>
-           <tr><td>Father's name</td><td>XXXX</td></tr>
-           <tr><td>Pay date</td><td>XXXX</td></tr>
-           <tr><td>PAN</td><td>XXXX</td></tr>
-           <tr><td>DOJ</td><td>XXXX</td></tr>
+           <tr><td>Employee name:</td><td>{{employee.name.salutation}} {{employee.name.firstName}} {{employee.name.lastName}}</td></tr>
+           <tr><td>Designation:</td><td>{{employee.employmentDetails.designation}}</td></tr>
+           <tr><td>Father's name:</td>
+               <td>{{employee.personalDetails.nameOfFather.salutation}} {{employee.personalDetails.nameOfFather.firstName}} {{employee.personalDetails.nameOfFather.lastName}}</td></tr>
+           <tr><td>Pay date: </td><td>{{employee.employmentDetails.compensationDetails.payDate}}</td></tr>
+           <tr><td>PAN: </td><td>{{employee.employmentDetails.compensationDetails.pan}}</td></tr>
+           <tr><td>DOJ</td><td>{{employee.employmentDetails.dateOfJoining}}</td></tr>
        </table>
         <table border="1px;"><tr><td>Earnings</td><td>Amount</td><td>Deductions</td><td>Amount</td></tr>
-            <tr><td>Basic</td><td>XXXX</td><td>Tax/TDS</td><td>xxxx</td></tr>
-            <tr><td>HRA</td><td>XXXX</td><td></td><td> </td></tr>
-            <tr><td>Conveyance</td><td>XXXX</td><td> </td><td> </td></tr>
-            <tr><td>Special allowance</td><td>XXXX</td><td> </td><td> </td></tr>
-            <tr><td>Gross salary</td><td>XXXX</td><td>Total deductions</td><td>XXXX</td></tr>
+            <tr><td>Basic: </td><td>{{employee.employmentDetails.compensationDetails.basicPay}}</td><td>Tax/TDS</td><td>{{employee.employmentDetails.compensationDetails.tds}}</td></tr>
+            <tr><td>HRA : </td><td>{{employee.employmentDetails.compensationDetails.hra}}</td><td></td><td> </td></tr>
+            <tr><td>Conveyance :</td><td>{{employee.employmentDetails.compensationDetails.conveyance}}</td><td> </td><td> </td></tr>
+            <tr><td>Special allowance :</td><td>{{employee.employmentDetails.compensationDetails.specialAllowance}}</td><td> </td><td> </td></tr>
+            <tr><td>Gross salary:</td><td>{{employee.employmentDetails.compensationDetails.grossSalary}}</td>
+                <td>Total deductions:</td><td>{{employee.employmentDetails.compensationDetails.totalDeduction}}</td></tr>
         </table>
 
     </article>
 
-    <footer><div class="row">
-        <div class="col-lg-3"><p>Heidelsoft Tech. Pvt. Ltd.</p>
-            <p>Jyothirmaya Building</p>
-            <p>2nd Floor, Wing-2, Office–1,</p>
-            <p>Infopark SEZ Phase-II</p>
-            <p>Kerala– 682303, India</p>
-        </div>
-        <div class="col-lg-3"><p>Managing Director: </p><p>Dr. Joshy Parookkaran</p><p>Director :</p><p> Günter Wiskot</p> </div>
-        <div class="col-lg-3"><p>Bank : HDFC Bank</p><p>A/c    : 50200011022711</p><p>IFSC : HDFCINBBXXX</p></div>
-        <div class="col-lg-3"><p>Bank Address : </p><p>HDFC Bank</p><p>Palarivattom, Kochi</p><p>Kerala – 682025,</p><p>India </p></div></div>
+    <footer>
+
+                    <div class="footer-class">Heidelsoft Tech. Pvt. Ltd.
+                        <br>Jyothirmaya Building
+                        <br>2nd Floor, Wing-2, Office–1,
+                        <br>Infopark SEZ Phase-II
+                        <br>Kerala– 682303, India
+                    </div>
+                    <div  class="footer-class">Managing Director: <br>Dr. Joshy Parookkaran<br>Director :<br> Günter Wiskot</div>
+                    <div  class="footer-class">Bank : HDFC Bank<br>A/c    : 50200011022711<br>IFSC : HDFCINBBXXX</div>
+                    <div  class="footer-class">Bank Address : <br>HDFC Bank<br>Palarivattom, Kochi<br>Kerala – 682025,<br>India</div>
+
+
     </footer>
 
-</div>
+    <table class="footertbl">
+        <tr>
+            <td>
+                Heidelsoft Tech. Pvt. Ltd.
+                <br>Jyothirmaya Building
+                <br>2nd Floor, Wing-2, Office–1,
+                <br>Infopark SEZ Phase-II
+                <br>Kerala– 682303, India
+            </td>
+            <td>
+                Heidelsoft Tech. Pvt. Ltd.
+                <br>Jyothirmaya Building
+                <br>2nd Floor, Wing-2, Office–1,
+                <br>Infopark SEZ Phase-II
+                <br>Kerala– 682303, India
+            </td>
+            <td>
+                Heidelsoft Tech. Pvt. Ltd.
+                <br>Jyothirmaya Building
+                <br>2nd Floor, Wing-2, Office–1,
+                <br>Infopark SEZ Phase-II
+                <br>Kerala– 682303, India
+            </td>
+        </tr>
+
+    </table>
+</div></div>
 </body>
 </html>
