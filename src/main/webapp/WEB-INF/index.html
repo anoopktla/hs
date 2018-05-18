@@ -15,8 +15,9 @@
     <script src="js/app.js"></script>
 </head>
 
-<body>
+<>
 <div ng-controller="CRUDCtrl" class="container">
+    <header><h1>Employee details</h1></header>
     <table class="table-bordered table-striped">
         <tr>
             <td width="100">ID:</td>
@@ -24,11 +25,13 @@
         </tr>
         <tr>
             <td width="100">Name:</td>
-            <td><input type="text" id="firstName" ng-model="employee.name.firstName" /></td>
-        </tr>
-        <tr>
-            <td width="100">Age:</td>
-            <td><input type="text" id="age" ng-model="employee.age" /></td>
+            <td> <select id="salutation" ng-model="employee.name.salutation">
+                <option value="select">select one</option>
+                <option value="Mr">Mr</option>
+                <option value="Mrs">Mrs</option>
+                <option value="Miss">Miss</option>
+                <option value="Dr">Dr</option>
+            </select><input type="text" id="firstName" ng-model="employee.name.firstName" /> <input type="text" id="lastName" ng-model="employee.name.lastName" /></td>
         </tr>
         <tr>
             <td width="100">Employee id:</td>
@@ -41,6 +44,97 @@
 
         </tr>
     </table>
+    <div class="panel panel-default">
+        <div class="panel-heading">Address</div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm3">
+                    Street address 1 <input type="text" ng-model="employee.address.streetAddress1">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm3">
+                    Street address 2 <input type="text" ng-model="employee.address.streetAddress2">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm3">
+                    City <input type="text" ng-model="employee.address.city">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm3">
+                    State <select type="text" ng-model="employee.address.state"><option value="select">select one</option></select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm3">
+                    Country <input type="text" ng-model="employee.address.country">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm3">
+                    Pin code <input type="text" ng-model="employee.address.pin">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">Employment details</div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm3">
+                    Designation <select type="text" ng-model="employee.employmentDetails.designation"><option value="select">select one</option></select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm3">
+                    Date of joining <input type="text" ng-model="employee.employmentDetails.dateOfJoining">
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">Compensation details</div>
+                <div class="panel-body">
+            <div class="row">
+                <div class="col-sm3">
+                    PAN <input type="text" ng-model="employee.employmentDetails.compensationDetails.pan">
+                </div>
+            </div>
+                    <div class="row">
+                        <div class="col-sm3">
+                            Bank name <input type="text" ng-model="employee.employmentDetails.compensationDetails.bankName">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm3">
+                            Account number <input type="text" ng-model="employee.employmentDetails.compensationDetails.accountNumber">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm3">
+                            Pay date <input type="text" ng-model="employee.employmentDetails.compensationDetails.payDate">
+                        </div>
+                    </div>
+        </div></div>
+<div class="panel panel-default">
+    <div class="panel-heading">Personal details</div>
+
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-sm3">
+                Date of birth <input type="text" ng-model="employee.employmentDetails.compensationDetails.payDate">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm3">
+                Father's name <input type="text" ng-model="employee.employmentDetails.compensationDetails.payDate">
+            </div>
+        </div>
+    </div></div>
+
     <button ng-click="getEmployee(employee.id)" class="btn">Get User</button>
     <a ng-click="getEmployee(employee.id)">Get User</a>
     <a ng-click="updateEmployee(employee)">Update User</a><br>
