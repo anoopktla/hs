@@ -113,9 +113,9 @@ article {
            <tr><td>Designation:</td><td>{{employee.employmentDetails.designation}}</td></tr>
            <tr><td>Father's name:</td>
                <td>{{employee.personalDetails.nameOfFather.salutation}} {{employee.personalDetails.nameOfFather.firstName}} {{employee.personalDetails.nameOfFather.lastName}}</td></tr>
-           <tr><td>Pay date: </td><td>{{employee.employmentDetails.compensationDetails.payDate}}</td></tr>
+           <tr><td>Pay date: </td><td>{{employee.employmentDetails.compensationDetails.payDate  | date : 'dd-MM-yyyy' }}</td></tr>
            <tr><td>PAN: </td><td>{{employee.employmentDetails.compensationDetails.pan}}</td></tr>
-           <tr><td>DOJ</td><td>{{employee.employmentDetails.dateOfJoining}}</td></tr>
+           <tr><td>DOJ</td><td>{{employee.employmentDetails.dateOfJoining  | date : 'dd-MM-yyyy'}}</td></tr>
        </table>
         <table border="1px;"><tr><td>Earnings</td><td>Amount</td><td>Deductions</td><td>Amount</td></tr>
             <tr><td>Basic: </td><td>{{employee.employmentDetails.compensationDetails.basicPay}}</td><td>Tax/TDS</td><td>{{employee.employmentDetails.compensationDetails.tds}}</td></tr>

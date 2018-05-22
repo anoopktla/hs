@@ -7,14 +7,17 @@ app.service('EmployeeCRUDService', [ '$http', function($http) {
             url : 'employees/' + employeeId
         });
     }
-    this.addEmployee = function addEmployee(name, email) {
+    this.addEmployee = function addEmployee(employee) {
+    alert(employee);
         return $http({
             method : 'POST',
             url : 'employees',
             data : {
-                name : name,
-                email: email
+            name :employee.name,
+            employeeId :employee.id
             }
+
+
         });
     }
     this.updateEmployee = function updateEmployee(id, name, email) {
@@ -102,6 +105,7 @@ app.controller('CRUDCtrl', ['$scope','EmployeeCRUDService',
                 $scope.message='';
             });
       };
+
       $scope.getAllEmployees = function () {
           EmployeeCRUDService.getAllEmployees()
             .then(function success(response) {
@@ -114,5 +118,11 @@ app.controller('CRUDCtrl', ['$scope','EmployeeCRUDService',
                 $scope.errorMessage = 'Error getting employees!';
             });
       };
+ /*$scope.$watch('employee.joiningDate', function (newValue) {
+                $scope.employee.joiningDate = $filter('date')(newValue, 'dd/MM/yyyy');
+            });*/
+
+
 }]);
+
 
