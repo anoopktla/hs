@@ -9,12 +9,19 @@ app.service('EmployeeCRUDService', [ '$http', function($http) {
     }
     this.addEmployee = function addEmployee(employee) {
     alert(employee);
+
         return $http({
             method : 'POST',
             url : 'employees',
             data : {
             name :employee.name,
-            employeeId :employee.id
+            employeeId :employee.employeeId,
+            address: employee.address,
+            employmentDetails: employee.employmentDetails,
+            personalDetails : employee.personalDetails
+
+
+
             }
 
 
@@ -66,7 +73,7 @@ app.controller('CRUDCtrl', ['$scope','EmployeeCRUDService',
       };
       $scope.addEmployee = function () {
           if ($scope.employee != null && $scope.employee.name) {
-              EmployeeCRUDService.addEmployee($scope.employee.name, $scope.employee.email)
+              EmployeeCRUDService.addEmployee($scope.employee)
                 .then (function success(response){
                     $scope.message = 'employee added!';
                     $scope.errorMessage = '';

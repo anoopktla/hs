@@ -23,7 +23,7 @@
     <table class="table-bordered table-striped">
         <tr>
             <td>ID:</td>
-            <td><input type="text" id="id" ng-model="employee.id" class="form-control"  /></td>
+            <td><input type="text" id="id" ng-model="employee.id" class="form-control"/></td>
         </tr>
         <tr>
             <td>Name:</td>
@@ -35,20 +35,20 @@
                     <option value="Miss">Miss</option>
                     <option value="Dr">Dr</option>
                 </select>
-                <input type="text" id="firstName" ng-model="employee.name.firstName" />
-                <input type="text" id="lastName" ng-model="employee.name.lastName" />
+                <input type="text" id="firstName" ng-model="employee.name.firstName"/>
+                <input type="text" id="lastName" ng-model="employee.name.lastName"/>
             </td>
         </tr>
         <tr>
             <td>Employee id:</td>
-            <td><input type="text" id="employeeId"  ng-model="employee.employeeId"  class="form-control" /></td>
+            <td><input type="text" id="employeeId" ng-model="employee.employeeId" class="form-control"/></td>
         </tr>
         <tr>
 
             <td width="100">Joining date:</td>
 
-            <td class="input-group date" data-provide="datepicker" >
-                <input type="datetime" id="joiningDate" ng-model="employee.joiningDate" class="form-control"  />
+            <td class="input-group date" data-provide="datepicker">
+                <input type="datetime" id="joiningDate" ng-model="employee.joiningDate" class="form-control"/>
                 <div class="input-group-addon">
                     <span class="glyphicon glyphicon-th"></span>
                 </div>
@@ -76,7 +76,9 @@
             </div>
             <div class="row">
                 <div class="col-sm3">
-                    State <select type="text" ng-model="employee.address.state" class="form-control"><option value="select">select one</option></select>
+                    State <select type="text" ng-model="employee.address.state" class="form-control">
+                    <option value="select">select one</option>
+                </select>
                 </div>
             </div>
             <div class="row">
@@ -96,14 +98,18 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-sm3">
-                    Designation <select type="text" ng-model="employee.employmentDetails.designation" class="form-control"><option value="select">select one</option></select>
+                    Designation <select type="text" ng-model="employee.employmentDetails.designation"
+                                        class="form-control">
+                    <option value="select">select one</option>
+                </select>
                 </div>
             </div>
             <div class="row">
                 <div class="input-group date" data-provide="datepicker"> Date of joining
-                   <!--<input type="datetime" ng-model="employee.employmentDetails.dateOfJoining">-->
-                   <div class="input-group date" data-provide="datepicker" >
-                       <input type="datetime"  ng-model="employee.employmentDetails.dateOfJoining" class="form-control" class="form-control"  />
+                    <!--<input type="datetime" ng-model="employee.employmentDetails.dateOfJoining">-->
+                    <div class="input-group date" data-provide="datepicker">
+                        <input type="datetime" ng-model="employee.employmentDetails.dateOfJoining" class="form-control"
+                               class="form-control"/>
                         <div class="input-group-addon">
                             <span class="glyphicon glyphicon-th"></span>
                         </div>
@@ -116,71 +122,78 @@
     </div>
     <div class="panel panel-default">
         <div class="panel-heading">Compensation details</div>
-                <div class="panel-body">
+        <div class="panel-body">
             <div class="row">
                 <div class="col-sm3">
-                    PAN <input type="text" ng-model="employee.employmentDetails.compensationDetails.pan" class="form-control">
+                    PAN <input type="text" ng-model="employee.employmentDetails.compensationDetails.pan"
+                               class="form-control">
                 </div>
             </div>
-                    <div class="row">
-                        <div class="col-sm3">
-                            Bank name <input type="text" ng-model="employee.employmentDetails.compensationDetails.bankName" class="form-control">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm3">
-                            Account number <input type="text" ng-model="employee.employmentDetails.compensationDetails.accountNumber" class="form-control">
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-sm1" >Joining date:</div>
-
-                        <div class="col-sm1 input-group date" data-provide="datepicker" >
-                            <input type="datetime"  ng-model="employee.employmentDetails.compensationDetails.payDate" class="form-control" class="form-control" />
-                            <div class="input-group-addon">
-                                <span class="glyphicon glyphicon-th"></span>
-                            </div>
-                        </div>
-
-                    </div>
-
-        </div></div>
-<div class="panel panel-default">
-    <div class="panel-heading">Personal details</div>
-
-    <div class="panel-body">
-        <div class="row">
-
-            <div class="col-sm-3" >Date of birth </div>
-<div class="col-sm-3">
-            <div  class="input-group date" data-provide="datepicker" >
-                <input type="datetime"  ng-model="employee.joiningDate" class="form-control"  />
-                <div class="input-group-addon">
-                    <span class="glyphicon glyphicon-th"></span>
+            <div class="row">
+                <div class="col-sm3">
+                    Bank name <input type="text" ng-model="employee.employmentDetails.compensationDetails.bankName"
+                                     class="form-control">
                 </div>
             </div>
-</div>
-        </div>
+            <div class="row">
+                <div class="col-sm3">
+                    Account number <input type="text"
+                                          ng-model="employee.employmentDetails.compensationDetails.accountNumber"
+                                          class="form-control">
+                </div>
+            </div>
+            <div class="row">
 
-        <div class="row">
-            <div class="col-sm3">
-                Father's name <input type="text" ng-model="employee.personalDetails.nameOfFather.firstName">
+                <div class="col-sm1">Joining date:</div>
+
+                <div class="col-sm1 input-group date" data-provide="datepicker">
+                    <input type="datetime" ng-model="employee.employmentDetails.compensationDetails.payDate"
+                           class="form-control" class="form-control"/>
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-th"></span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">Personal details</div>
+
+        <div class="panel-body">
+            <div class="row">
+
+                <div class="col-sm-3">Date of birth</div>
+                <div class="col-sm-3">
+                    <div class="input-group date" data-provide="datepicker">
+                        <input type="datetime" ng-model="employee.personalDetails.dob" datetime="yyyy-MM-dd HH:mm:ss" class="form-control"/>
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-th"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm3">
+                    Father's name <input type="text" ng-model="employee.personalDetails.nameOfFather.firstName">
+                </div>
             </div>
         </div>
-    </div></div>
+    </div>
 
     <button ng-click="getEmployee(employee.id)" class="btn">Get User</button>
-    <a ng-click="getEmployee(employee.id)">Get User</a>
     <a ng-click="updateEmployee(employee)">Update User</a><br>
-    <a ng-click="addEmployee(employee)">Add User</a><br>
+    <button ng-click="addEmployee(employee)">Add User</button>
+    <br>
     <a ng-click="deleteEmployee(employee.employeeId)">Delete User</a><br>
     <a ng-click="getAllEmployees()">Get all Users</a><br/><br/>
     <div ng-repeat="employee in employees" class="panel panel-default">
-        <div> ID:{{employee.id}} </div>
+        <div> ID:{{employee.id}}</div>
         <div>Name :{{employee.name.firstName}}</div>
         <div>Emp id : {{employee.employeeId}}</div>
-        <div>Joining date: {{employee.joiningDate  | date : 'yyyy-MM-dd'}}</div>
+        <div>Joining date: {{employee.joiningDate | date : 'yyyy-MM-dd'}}</div>
         <a href="/reports/report?id={{employee.id}}">view </a>
 
     </div>
