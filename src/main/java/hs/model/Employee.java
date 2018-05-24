@@ -8,7 +8,7 @@ import java.util.Date;
 @Document(collection = "Employees")
 public class Employee {
 
-    @Id private String id;
+    private String id;
 
     private Name name;
     private String employeeId;

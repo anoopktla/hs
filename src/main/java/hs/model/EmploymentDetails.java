@@ -1,12 +1,19 @@
 package hs.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import hs.enums.Designation;
 
 import java.util.Date;
 
 public class EmploymentDetails {
     private Designation designation;
+
+    @JsonFormat
+            (shape = JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy")
     private Date dateOfJoining;
+
+    @JsonFormat
+            (shape = JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy")
     private Date dateOfReleaving;
     private  CompensationDetails compensationDetails;
 

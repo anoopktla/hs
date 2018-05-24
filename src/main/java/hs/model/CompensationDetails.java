@@ -1,10 +1,15 @@
 package hs.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class CompensationDetails {
     private String pan;
     private String bankName;
+    private Long accountNumber;
+    @JsonFormat
+            (shape = JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy")
     private Date payDate;
     private int basicPay;
     private int hra;
@@ -92,5 +97,13 @@ public class CompensationDetails {
 
     public void setBankName(String bankName) {
         this.bankName = bankName;
+    }
+
+    public Long getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void setAccountNumber(Long accountNumber) {
+        this.accountNumber = accountNumber;
     }
 }

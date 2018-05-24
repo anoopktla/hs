@@ -34,4 +34,13 @@ public class Name {
     public void setSalutation(String salutation) {
         this.salutation = salutation;
     }
+
+    @Override
+    public String toString() {
+        return "Name{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", salutation='" + salutation + '\'' +
+                '}';
+    }
 }

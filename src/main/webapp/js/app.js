@@ -8,7 +8,6 @@ app.service('EmployeeCRUDService', [ '$http', function($http) {
         });
     }
     this.addEmployee = function addEmployee(employee) {
-    alert(employee);
 
         return $http({
             method : 'POST',
@@ -19,12 +18,7 @@ app.service('EmployeeCRUDService', [ '$http', function($http) {
             address: employee.address,
             employmentDetails: employee.employmentDetails,
             personalDetails : employee.personalDetails
-
-
-
             }
-
-
         });
     }
     this.updateEmployee = function updateEmployee(id, name, email) {
@@ -49,6 +43,30 @@ app.service('EmployeeCRUDService', [ '$http', function($http) {
             url : 'employees'
         });
     }
+    this.getAllDesignations = function getAllDesignations() {
+            return $http({
+                method : 'GET',
+                url : 'designations'
+            });
+        }
+        this.getAllSalutations = function getAllSalutations() {
+                    return $http({
+                        method : 'GET',
+                        url : 'salutations'
+                    });
+                }
+         this.getAllStates = function getAllStates() {
+                            return $http({
+                                method : 'GET',
+                                url : 'states'
+                            });
+                        }
+                         this.getAllCountries = function getAllStates() {
+                                                    return $http({
+                                                        method : 'GET',
+                                                        url : 'countries'
+                                                    });
+                                                }
 } ]);
 app.controller('CRUDCtrl', ['$scope','EmployeeCRUDService',
   function ($scope,EmployeeCRUDService) {
@@ -119,15 +137,56 @@ app.controller('CRUDCtrl', ['$scope','EmployeeCRUDService',
                 $scope.employees = response.data;
                 $scope.message='';
                 $scope.errorMessage = '';
+
             },
             function error (response) {
                 $scope.message='';
                 $scope.errorMessage = 'Error getting employees!';
             });
       };
- /*$scope.$watch('employee.joiningDate', function (newValue) {
-                $scope.employee.joiningDate = $filter('date')(newValue, 'dd/MM/yyyy');
-            });*/
+       $scope.getAllStaticValues = function () {
+                EmployeeCRUDService.getAllDesignations()
+                  .then(function success(response) {
+                      $scope.designations = response.data;
+                      $scope.message='';
+                      $scope.errorMessage = '';
+                  },
+                  function error (response) {
+                      $scope.message='';
+                      $scope.errorMessage = 'Error getting designations!';
+                  });
+                  EmployeeCRUDService.getAllSalutations()
+                                    .then(function success(response) {
+                                        $scope.salutations = response.data;
+                                        $scope.message='';
+                                        $scope.errorMessage = '';
+                                    },
+                                    function error (response) {
+                                        $scope.message='';
+                                        $scope.errorMessage = 'Error getting salutations!';
+                                    });
+                 EmployeeCRUDService.getAllStates()
+                                                     .then(function success(response) {
+                                                         $scope.states = response.data;
+                                                         $scope.message='';
+                                                         $scope.errorMessage = '';
+                                                     },
+                                                     function error (response) {
+                                                         $scope.message='';
+                                                         $scope.errorMessage = 'Error getting states!';
+                                                     });
+                EmployeeCRUDService.getAllCountries()
+                                                                     .then(function success(response) {
+                                                                         $scope.countries = response.data;
+                                                                         $scope.message='';
+                                                                         $scope.errorMessage = '';
+                                                                     },
+                                                                     function error (response) {
+                                                                         $scope.message='';
+                                                                         $scope.errorMessage = 'Error getting states!';
+                                                                     });
+            };
+
 
 
 }]);

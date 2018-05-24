@@ -1,8 +1,12 @@
 package hs.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class PersonalDetails {
+    @JsonFormat
+            (shape = JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy")
     private Date dob;
     private Name nameOfFather;
     private String pan;
