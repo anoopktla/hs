@@ -1,4 +1,28 @@
-var app = angular.module('app',[]);
+var app = angular.module('app',['ngRoute']);
+app.config(function($routeProvider) {
+  $routeProvider
+
+  .when('/', {
+    templateUrl : 'index.html',
+    controller  : 'HomeController'
+  })
+
+  .when('/list', {
+    templateUrl : 'list',
+    controller  : 'EmployeeController'
+  })
+
+  .when('/viewEmployeeDetails', {
+    templateUrl : 'viewEmployeeDetails',
+    controller  : 'EmployeeController'
+  })
+  .when('/new', {
+      templateUrl : 'new',
+      controller  : 'EmployeeController'
+    })
+
+  .otherwise({redirectTo: '/'});
+});
 app.service('EmployeeCRUDService', [ '$http', function($http) {
 
     this.getEmployee = function getEmployee(employeeId) {
@@ -68,7 +92,7 @@ app.service('EmployeeCRUDService', [ '$http', function($http) {
                                                     });
                                                 }
 } ]);
-app.controller('CRUDCtrl', ['$scope','EmployeeCRUDService',
+app.controller('HomeController', ['$scope','EmployeeCRUDService',
   function ($scope,EmployeeCRUDService) {
       $scope.getEmployee = function () {
           var id = $scope.employee.id;
@@ -190,5 +214,24 @@ app.controller('CRUDCtrl', ['$scope','EmployeeCRUDService',
 
 
 }]);
+app.controller('EmployeeController', ['$scope','EmployeeCRUDService',
+ function ($scope,EmployeeCRUDService) {
+ $scope.getAllEmployees = function () {
+           EmployeeCRUDService.getAllEmployees()
+             .then(function success(response) {
+                 $scope.employees = response.data;
+                 $scope.message='';
+                 $scope.errorMessage = '';
 
+             },
+             function error (response) {
+                 $scope.message='';
+                 $scope.errorMessage = 'Error getting employees!';
+             });
+       };
+
+ }
+
+
+]);
 

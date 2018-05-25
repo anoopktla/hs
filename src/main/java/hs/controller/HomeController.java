@@ -16,4 +16,18 @@ public class HomeController {
         return "/reports/report";
     }
 
+    @RequestMapping("/list")
+    public String list() {
+        return "employeelist";
+    }
+
+    @RequestMapping("/viewEmployeeDetails")
+    public String viewEmployeeDetails() {
+        return "viewEmployeeDetails";
+    }
+    @RequestMapping("/new")
+    public String newEmployee() {
+        return "new";
+    }
+
 }

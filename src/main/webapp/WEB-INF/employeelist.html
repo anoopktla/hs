@@ -1,0 +1,18 @@
+<table class="table table-bordered"  data-ng-init="getAllEmployees()">
+    <thead>
+    <tr>
+        <th>Employee Id</th>
+        <th>Name</th>
+        <th>Designation</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr  ng-repeat="employee in employees" class="panel panel-default">
+        <td class="col-sm-3">{{employee.employeeId}}</td>
+        <td class="col-sm-3">{{employee.name.firstName}} {{employee.name.lastName}}</td>
+        <td class="col-sm-3">{{employee.employmentDetails.designation}} </td>
+        <td> <a href="#/viewEmployeeDetails?id={{employee.id}}">view </a></td>
+    </tr>
+    </tbody>
+</table>

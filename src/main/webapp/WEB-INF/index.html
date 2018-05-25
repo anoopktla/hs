@@ -3,10 +3,11 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Hs</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-datepicker3.min.css">
     <link rel="stylesheet" href="css/bootstrap-datepicker3.standalone.min.css">
@@ -14,231 +15,27 @@
     <script src="js/bootstrap-datepicker.min.js"></script>
     <script src="js/app.js"></script>
 </head>
-<div ng-controller="CRUDCtrl" class="container" data-ng-init="getAllStaticValues()">
-    <header><h1>Employee details</h1>
-    </header>
+
+<header><h1>Employee details</h1>
+</header>
+<div class="container" >
+    <a href="#/list">List</a>
+    <div class="panel panel-default">
+
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-6">
+                    <button onclick="window.location.href='#/new';" class="btn">Add new
+                    </button>
+                </div>
+                <div class="col-sm-6"><input type="text" placeholder="Search"></div>
+            </div>
+        </div>
+    </div>
     <article>
-        <table class="table-bordered table-striped">
-            <tr>   <td>ID:</td> <td><input type="text" id="id" ng-model="employee.id" class="form-control"/></td> </tr>
-        <tr><td><button ng-click="getEmployee(employee.id)" class="btn">Get User</button></td></tr>
-        </table>
-        <div class="panel panel-default">
-            <div class="panel-heading">Personal details
-            </div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-sm-3">Name:
-                    </div>
-                    <div class="col-sm-3">
-                        <select id="salutation" ng-model="employee.name.salutation" class="form-control"
-                                ng-options="salutation for salutation in salutations track by salutation">
-                        </select>
-                    </div>
-                    <div class="col-sm-3">
-                        <input type="text" id="firstName" ng-model="employee.name.firstName" class="form-control"/>
-                    </div>
-                    <div class="col-sm-3">
-                        <input type="text" id="lastName" ng-model="employee.name.lastName" class="form-control"/>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-sm-3">
-                        Employee id:
-                    </div>
-                    <div class="col-sm-3">
-                        <input type="text" id="employeeId" ng-model="employee.employeeId" class="form-control"/>
-                    </div>
-                </div>
-                <div class="row">
-
-                    <div class="col-sm-3">Date of birth</div>
-                    <div class="col-sm-3">
-                        <div class="input-group date" data-provide="datepicker">
-                            <input type="datetime" ng-model="employee.personalDetails.dob" class="form-control"/>
-                            <div class="input-group-addon">
-                                <span class="glyphicon glyphicon-th"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-sm-3"> Father's name:</div>
-                    <div class="col-sm-3">
-
-                        <select id="fathersSalutation" ng-model="employee.personalDetails.nameOfFather.salutation"
-                                class="form-control"
-                                ng-options="salutation for salutation in salutations track by salutation">
-
-                        </select>
-                    </div>
-                    <div class="col-sm-3">
-                        <input type="text" id="fathersFirstName"
-                               ng-model="employee.personalDetails.nameOfFather.firstName" class="form-control"/></div>
-                    <div class="col-sm-3">
-                        <input type="text" id="fathersLastName"
-                               ng-model="employee.personalDetails.nameOfFather.lastName" class="form-control"/>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="panel panel-default">
-            <div class="panel-heading">Address</div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-sm-3">
-                        Street address 1
-                    </div>
-                    <div class="col-sm-3"><input type="text" ng-model="employee.address.streetAddress1"
-                                                 class="form-control">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-3">
-                        Street address 2
-                    </div>
-                    <div class="col-sm-3"><input type="text" ng-model="employee.address.streetAddress2"
-                                                 class="form-control">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-3">
-                        City
-                    </div>
-                    <div class="col-sm-3"><input type="text" ng-model="employee.address.city" class="form-control">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-3">
-                        State
-                    </div>
-                    <div class="col-sm-3">
-                        <select  ng-model="employee.address.state" class="form-control"  ng-options="state.name for state in states track by state.key">
-
-
-                    </select>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-3">
-                        Country
-                    </div>
-                    <div class="col-sm-3"><select type="text" ng-model="employee.address.country" class="form-control" ng-options="country.name for country in countries track by country.key"></select>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-3">
-                        Pin code
-                    </div>
-                    <div class="col-sm-3"><input type="text" ng-model="employee.address.pinCode" class="form-control">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="panel panel-default">
-            <div class="panel-heading">Employment details</div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-sm-3">
-                        Designation </div><div class="col-sm-3"> <select ng-model="employee.employmentDetails.designation"
-                                            class="form-control"
-                                            ng-options="designation for designation in designations track by designation">
-
-                    </select>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-3">
-                        Date of joining</div><div class="col-sm-3">
-
-                        <!--<input type="datetime" ng-model="employee.employmentDetails.dateOfJoining">-->
-                        <div class="input-group date" data-provide="datepicker">
-                            <input type="datetime" ng-model="employee.employmentDetails.dateOfJoining"
-                                   class="form-control"
-                                   class="form-control"/>
-                            <div class="input-group-addon">
-                                <span class="glyphicon glyphicon-th"></span>
-                            </div>
-
-
-                    </div>
-                </div>
-                </div>
-
-            </div>
-        </div>
-        <div class="panel panel-default">
-            <div class="panel-heading">Compensation details</div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-sm-3">
-                        PAN </div><div class="col-sm-3"><input type="text" ng-model="employee.employmentDetails.compensationDetails.pan"
-                                   class="form-control">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-3">
-                        Bank name</div><div class="col-sm-3"> <input type="text" ng-model="employee.employmentDetails.compensationDetails.bankName"
-                                         class="form-control">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-3">
-                        Account number </div><div class="col-sm-3"><input type="text"
-                                              ng-model="employee.employmentDetails.compensationDetails.accountNumber"
-                                              class="form-control">
-                    </div>
-                </div>
-                <div class="row">
-
-                    <div class="col-sm-3">Joining date:</div>
-                    <div class="col-sm-3">
-                    <div class="input-group date" data-provide="datepicker">
-                        <input type="datetime" ng-model="employee.employmentDetails.compensationDetails.payDate"
-                               class="form-control" class="form-control"/>
-                        <div class="input-group-addon">
-                            <span class="glyphicon glyphicon-th"></span>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-
-        <button ng-click="getEmployee(employee.id)" class="btn">Get User</button>
-        <a ng-click="updateEmployee(employee)">Update User</a><br>
-        <button ng-click="addEmployee(employee)">Add User</button>
-        <br>
-        <a ng-click="deleteEmployee(employee.employeeId)">Delete User</a><br>
-        <a ng-click="getAllEmployees()">Get all Users</a><br/><br/>
-        <table class="table">
-            <thead>
-            <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Employee id</th>
-<th>Link</th>
-            </tr>
-            </thead>
-            <tbody>
-
-            <tr  ng-repeat="employee in employees" class="panel panel-default">
-
-                <!--  <div> ID:{{employee.id}}</div>-->
-                <td class="col-sm-3">{{employee.name.firstName}}</td>
-                <td class="col-sm-3">{{employee.employeeId}}</td>
-                <!-- <div>Joining date: {{employee.joiningDate | date : 'dd-MM-yyyy'}}</div>-->
-                <td> <a href="/reports/report?id={{employee.id}}">view </a></td>
-
-
-            </tr>
-
-            </tbody>
-        </table>
+        <div ng-view></div>
+    </article>
 </div>
-</article>
+
 </body>
 </html>
