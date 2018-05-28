@@ -16,10 +16,12 @@
     <script src="js/app.js"></script>
 </head>
 
-<header><h1>Employee details</h1>
+<header><h3 style="text-align:center;">Employee details</h3>
 </header>
-<div class="container" >
-    <a href="#/list">List</a>
+<div class="container" ng-init="getAllDesignations()">
+    <button onclick="window.location.href='#/list';" class="btn">List all
+    </button>
+
     <div class="panel panel-default">
 
         <div class="panel-body">

@@ -1,10 +1,95 @@
-<div class="btn-group">
-    <button type="button" class="btn btn-primary">General</button>
-    <button type="button" class="btn btn-primary">Reports</button>
-</div>
-<div class="row">
+
+<div class="row" data-ng-init="getEmployee()">
     <div class="col-sm-6">
-        col-1
+        <div class="panel panel-default" >
+            <div class="panel-heading">Personal details
+            </div>
+            <div class="panel-body">
+        <table class="table table-bordered" >
+            <tbody>
+
+                <td class="col-sm-3">Name </td><td class="col-sm-3">{{employee.name.salutation}} {{employee.name.firstName}} {{employee.name.lastName}}</td></tr>
+
+            <tr>
+                <td class="col-sm-3">Date of birth </td> <td class="col-sm-3">{{employee.personalDetails.dob}} </td>
+            </tr>
+            <tr>
+                <td class="col-sm-3">Father's name </td> <td class="col-sm-3">{{employee.personalDetails.nameOfFather.salutation}} {{employee.personalDetails.nameOfFather.firstName}} {{ employee.personalDetails.nameOfFather.lastName}} </td>
+            </tr>
+
+            </tbody>
+        </table>
+            </div>
+    </div>
+        <div class="panel panel-default" >
+            <div class="panel-heading">Address
+            </div>
+            <div class="panel-body">
+                <table class="table table-bordered" >
+                    <tbody>
+                    <tr>
+                        <td class="col-sm-3">Street address 1 </td> <td class="col-sm-3" >{{employee.address.streetAddress1}}</td> </tr>
+                    <tr>
+                        <td class="col-sm-3">Street addres 2</td><td class="col-sm-3">{{employee.address.streetAddress12}}</td></tr>
+                    <tr>
+                        <td class="col-sm-3">City </td> <td class="col-sm-3">{{employee.address.city}} </td>
+                    </tr>
+                    <tr>
+                        <td class="col-sm-3">State </td> <td class="col-sm-3">{{employee.address.state}} </td>
+                    </tr>
+                    <tr>
+                        <td class="col-sm-3">Country </td> <td class="col-sm-3">{{employee.address.country}} </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+
+            </div></div>
+        <div class="panel panel-default" >
+            <div class="panel-heading">Employment details
+            </div>
+            <div class="panel-body">
+                <table class="table table-bordered" >
+                    <tbody>
+                    <tr>
+                        <td class="col-sm-3">Employee Id </td> <td class="col-sm-3" >{{employee.employeeId}}</td> </tr>
+                    <tr>
+                    <tr>
+                        <td class="col-sm-3">Designation </td> <td class="col-sm-3" >{{employee.employmentDetails.designation}}</td> </tr>
+                    <tr>
+                        <td class="col-sm-3">Date of joining</td><td class="col-sm-3">{{employee.employmentDetails.dateOfJoining}}</td></tr>
+
+
+
+                    </tbody>
+                </table>
+
+            </div></div>
+        <div class="panel panel-default" >
+            <div class="panel-heading">Compensation details
+            </div>
+            <div class="panel-body">
+                <table class="table table-bordered" >
+                    <tbody>
+                    <tr>
+                        <td class="col-sm-3">PAN# </td> <td class="col-sm-3" >{{employee.employmentDetails.compensationDetails.pan}}</td>
+                    </tr>
+                    <tr>
+                        <td class="col-sm-3">Bank name </td> <td class="col-sm-3" >{{employee.employmentDetails.compensationDetails.bankName}}</td>
+                    </tr>
+                    <tr>
+                        <td class="col-sm-3">Bank account number</td><td class="col-sm-3">{{employee.employmentDetails.compensationDetails.accountNumber}}</td>
+                    </tr>
+                    <tr>
+                        <td class="col-sm-3">Payment date</td><td class="col-sm-3">{{ employee.employmentDetails.compensationDetails.payDate}}</td>
+                    </tr>
+
+
+
+                    </tbody>
+                </table>
+
+            </div></div>
     </div>
     <div class="col-sm-6">
         <div class="row">
@@ -13,8 +98,7 @@
         <div class="row">
             <button type="button" class="btn btn-primary">Delete</button>
         </div>
+        <div class="row">  <button onclick="window.location.href='#/list';" class="btn">Cancel
+        </button></div>
     </div>
-</div>
-<div class="row">
-    <a href="#/list">cancel</a>
 </div>
