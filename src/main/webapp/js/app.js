@@ -20,7 +20,10 @@ app.config(function($routeProvider) {
       templateUrl : 'new',
       controller  : 'EmployeeController'
     })
-
+  .when('/update', {
+      templateUrl : 'new',
+      controller  : 'EmployeeController'
+   })
   .otherwise({redirectTo: '/'});
 });
 app.service('EmployeeCRUDService', [ '$http', function($http) {
@@ -121,31 +124,36 @@ app.controller('EmployeeController', ['$scope','EmployeeCRUDService','$routePara
 
        };
        $scope.addEmployee = function () {
-              EmployeeCRUDService.addEmployee(employee)
-                           .then(function success(response) {
+
+
+              EmployeeCRUDService.addEmployee($scope.employee)
+                          .then(function success(response) {
                                $scope.employee = response.data;
-                               $scope.message='';
-                               $scope.errorMessage = '';
-                               },
+                              $scope.message='';
+                              $scope.errorMessage = '';
+                              },
                            function error (response) {
                                $scope.message='';
-                               $scope.errorMessage = 'Error adding employee!';
+                              $scope.errorMessage = 'Error adding employee!';
                            });
 
               };
-       $scope.addEmployee = function () {
-              EmployeeCRUDService.addEmployee(employee)
-                           .then(function success(response) {
-                               $scope.employee = response.data;
-                               $scope.message='';
-                               $scope.errorMessage = '';
-                               },
-                           function error (response) {
-                               $scope.message='';
-                               $scope.errorMessage = 'Error getting employees!';
-                           });
+              $scope.deleteEmployee = function () {
 
-              };
+
+                            EmployeeCRUDService.deleteEmployee($scope.employee.id)
+                                        .then(function success(response) {
+
+                                            $scope.message='';
+                                            $scope.errorMessage = '';
+                                            },
+                                         function error (response) {
+                                             $scope.message='';
+                                            $scope.errorMessage = 'Error deleting employee!';
+                                         });
+
+                            };
+
        $scope.getAllStaticValues = function () {
        EmployeeCRUDService.getAllDesignations()
                    .then(function success(response) {

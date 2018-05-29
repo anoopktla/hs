@@ -5,8 +5,8 @@ public class Address {
     private String streetAddress1;
     private String streetAddress2;
     private String city;
-    private String state;
-    private String country;
+    private State state;
+    private Country country;
     private String pinCode;
 
     public String getStreetAddress1() {
@@ -33,19 +33,19 @@ public class Address {
         this.city = city;
     }
 
-    public String getState() {
+    public State getState() {
         return state;
     }
 
-    public void setState(String state) {
+    public void setState(State state) {
         this.state = state;
     }
 
-    public String getCountry() {
+    public Country getCountry() {
         return country;
     }
 
-    public void setCountry(String country) {
+    public void setCountry(Country country) {
         this.country = country;
     }
 

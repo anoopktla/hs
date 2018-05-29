@@ -7,7 +7,7 @@ import java.util.Date;
 public class CompensationDetails {
     private String pan;
     private String bankName;
-    private Long accountNumber;
+    private int accountNumber;
     @JsonFormat
             (shape = JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy")
     private Date payDate;
@@ -99,11 +99,11 @@ public class CompensationDetails {
         this.bankName = bankName;
     }
 
-    public Long getAccountNumber() {
+    public int getAccountNumber() {
         return accountNumber;
     }
 
-    public void setAccountNumber(Long accountNumber) {
+    public void setAccountNumber(int accountNumber) {
         this.accountNumber = accountNumber;
     }
 }

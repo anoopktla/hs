@@ -1,4 +1,4 @@
-<div class="panel panel-default"  data-ng-init="getAllStaticValues();" >
+<div class="panel panel-default" data-ng-init="getAllStaticValues();">
     <div class="panel-heading">Personal details
     </div>
     <div class="panel-body">
@@ -8,6 +8,7 @@
             <div class="col-sm-3">
                 <select id="salutation" ng-model="employee.name.salutation" class="form-control"
                         ng-options="salutation for salutation in salutations track by salutation">
+                    <option value="">select one</option>
                 </select>
             </div>
             <div class="col-sm-3">
@@ -45,7 +46,7 @@
                 <select id="fathersSalutation" ng-model="employee.personalDetails.nameOfFather.salutation"
                         class="form-control"
                         ng-options="salutation for salutation in salutations track by salutation">
-
+                    <option value="">select one</option>
                 </select>
             </div>
             <div class="col-sm-3">
@@ -90,9 +91,9 @@
                 State
             </div>
             <div class="col-sm-3">
-                <select  ng-model="employee.address.state" class="form-control"  ng-options="state.name for state in states track by state.key">
-
-
+                <select ng-model="employee.address.state" class="form-control"
+                        ng-options="state.name for state in states track by state.key">
+                    <option value="">select one</option>
                 </select>
             </div>
         </div>
@@ -100,7 +101,11 @@
             <div class="col-sm-3">
                 Country
             </div>
-            <div class="col-sm-3"><select type="text" ng-model="employee.address.country" class="form-control" ng-options="country.name for country in countries track by country.key"></select>
+            <div class="col-sm-3">
+                <select type="text" ng-model="employee.address.country" class="form-control"
+                        ng-options="country.name for country in countries track by country.key">
+                    <option value="">select one</option>
+                </select>
             </div>
         </div>
         <div class="row">
@@ -117,55 +122,65 @@
     <div class="panel-body">
         <div class="row">
             <div class="col-sm-3">
-                Designation </div><div class="col-sm-3"> <select ng-model="employee.employmentDetails.designation"
-                                                                 class="form-control"
-                                                                 ng-options="designation for designation in designations track by designation">
-
-        </select>
-        </div>
+                Designation
+            </div>
+            <div class="col-sm-3">
+                <select ng-model="employee.employmentDetails.designation" class="form-control"
+                        ng-options="designation for designation in designations track by designation">
+                    <option value="">select one</option>
+                </select>
+            </div>
         </div>
         <div class="row">
             <div class="col-sm-3">
-                Date of joining</div><div class="col-sm-3">
-
-            <!--<input type="datetime" ng-model="employee.employmentDetails.dateOfJoining">-->
-            <div class="input-group date" data-provide="datepicker">
-                <input type="datetime" ng-model="employee.employmentDetails.dateOfJoining"
-                       class="form-control"
-                       class="form-control"/>
-                <div class="input-group-addon">
-                    <span class="glyphicon glyphicon-th"></span>
-                </div>
-
-
+                Date of joining
             </div>
+            <div class="col-sm-3">
+
+                <!--<input type="datetime" ng-model="employee.employmentDetails.dateOfJoining">-->
+                <div class="input-group date" data-provide="datepicker">
+                    <input type="datetime" ng-model="employee.employmentDetails.dateOfJoining"
+                           class="form-control"
+                           class="form-control"/>
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-th"></span>
+                    </div>
+
+
+                </div>
+            </div>
+
+
         </div>
-
-
     </div>
-</div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading">Compensation details</div>
     <div class="panel-body">
         <div class="row">
             <div class="col-sm-3">
-                PAN </div><div class="col-sm-3"><input type="text" ng-model="employee.employmentDetails.compensationDetails.pan"
-                                                       class="form-control">
-        </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-3">
-                Bank name</div><div class="col-sm-3"> <input type="text" ng-model="employee.employmentDetails.compensationDetails.bankName"
-                                                             class="form-control">
-        </div>
+                PAN
+            </div>
+            <div class="col-sm-3"><input type="text" ng-model="employee.employmentDetails.compensationDetails.pan"
+                                         class="form-control">
+            </div>
         </div>
         <div class="row">
             <div class="col-sm-3">
-                Account number </div><div class="col-sm-3"><input type="text"
-                                                                  ng-model="employee.employmentDetails.compensationDetails.accountNumber"
-                                                                  class="form-control">
+                Bank name
+            </div>
+            <div class="col-sm-3"><input type="text" ng-model="employee.employmentDetails.compensationDetails.bankName"
+                                         class="form-control">
+            </div>
         </div>
+        <div class="row">
+            <div class="col-sm-3">
+                Account number
+            </div>
+            <div class="col-sm-3"><input type="text"
+                                         ng-model="employee.employmentDetails.compensationDetails.accountNumber"
+                                         class="form-control">
+            </div>
         </div>
         <div class="row">
 
@@ -184,7 +199,7 @@
     </div>
 </div>
 <div class="row">
-    <button  onclick="addEmployee(employee);" class="btn">Save
+    <button ng-click="addEmployee();" class="btn">Save
     </button>
     <button onclick="window.location.href='#/list';" class="btn">Cancel
     </button>
