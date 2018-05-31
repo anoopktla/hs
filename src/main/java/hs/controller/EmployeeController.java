@@ -34,15 +34,15 @@ public class EmployeeController {
 
     @PutMapping("/employees/{id}")
     public Employee updateEmployee(@PathVariable(value = "id") String id,
-                           @Valid @RequestBody Employee noteDetails) {
+                           @Valid @RequestBody Employee updatedEmployee) {
 
         Employee employee = employeeRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("employees", "id", id));
 
-        employee.setName(new Name(employee.getName().getFirstName(),employee.getName().getLastName(),employee.getName().getSalutation()));
+        updatedEmployee.setId(employee.getId());
 
 
-        return employeeRepository.save(employee);
+        return employeeRepository.save(updatedEmployee);
 
     }
 

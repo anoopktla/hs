@@ -41,7 +41,7 @@
                     </tr>
                     <tr>
                         <td class="col-sm-3">Street address 2</td>
-                        <td class="col-sm-3">{{employee.address.streetAddress12}}</td>
+                        <td class="col-sm-3">{{employee.address.streetAddress2}}</td>
                     </tr>
                     <tr>
                         <td class="col-sm-3">City</td>
@@ -109,6 +109,34 @@
                         <td class="col-sm-3">Payment date</td>
                         <td class="col-sm-3">{{ employee.employmentDetails.compensationDetails.payDate}}</td>
                     </tr>
+                    <tr>
+                        <td class="col-sm-3">Basic pay</td>
+                        <td class="col-sm-3">{{ employee.employmentDetails.compensationDetails.basicPay}}</td>
+                    </tr>
+                    <tr>
+                        <td class="col-sm-3">HRA</td>
+                        <td class="col-sm-3">{{ employee.employmentDetails.compensationDetails.hra}}</td>
+                    </tr>
+                    <tr>
+                        <td class="col-sm-3">Special allowance</td>
+                        <td class="col-sm-3">{{ employee.employmentDetails.compensationDetails.specialAllowance}}</td>
+                    </tr>
+                    <tr>
+                        <td class="col-sm-3">Conveyance</td>
+                        <td class="col-sm-3">{{ employee.employmentDetails.compensationDetails.conveyance}}</td>
+                    </tr>
+                    <tr>
+                        <td class="col-sm-3">Gross salary</td>
+                        <td class="col-sm-3">{{ employee.employmentDetails.compensationDetails.grossSalary}}</td>
+                    </tr>
+                    <tr>
+                        <td class="col-sm-3">TDS</td>
+                        <td class="col-sm-3">{{ employee.employmentDetails.compensationDetails.tds}}</td>
+                    </tr>
+                    <tr>
+                        <td class="col-sm-3">Total deduction</td>
+                        <td class="col-sm-3">{{ employee.employmentDetails.compensationDetails.totalDeduction}}</td>
+                    </tr>
 
 
                     </tbody>
@@ -121,7 +149,7 @@
         <div class="row">
             <div class="col-sm-2">
                 <div class="row">
-                    <button type="button" class="btn btn-primary" onclick="window.location.href='#/update';" >Edit</button>
+                    <a href="#/update?id={{employee.id}}&mode=update">Update </a>
                 </div>
                 <div class="row">
                     <button type="button" class="btn btn-primary"  ng-click="deleteEmployee()">Delete</button>
@@ -130,6 +158,26 @@
                     <button onclick="window.location.href='#/list';" class="btn">Cancel
                     </button>
                     </button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-heading">Salary certificate
+                </div>
+                <div class="panel-body">
+                    <div class="col-sm-3">
+                        <div class="input-group date" data-provide="datepicker"  format=mm/yyyy" startView= "year" >
+                            <input type="datetime"  class="form-control"/>
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-th"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="/reports/report?id={{employee.id}}">
+                        generate
+                    </a>
                 </div>
             </div>
         </div>

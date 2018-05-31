@@ -1,4 +1,4 @@
-<div class="panel panel-default" data-ng-init="getAllStaticValues();">
+<div class="panel panel-default" data-ng-init="getAllStaticValues();getEmployee();">
     <div class="panel-heading">Personal details
     </div>
     <div class="panel-body">
@@ -195,6 +195,57 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-sm-3">
+                Basic pay
+            </div><div class="col-sm-3">
+            <input type="text" ng-model="employee.employmentDetails.compensationDetails.accountNumber" class="form-control">
+        </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                Basic pay
+            </div><div class="col-sm-3">
+            <input type="text" ng-model="employee.employmentDetails.compensationDetails.basicPay" class="form-control">
+        </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                HRA
+            </div><div class="col-sm-3">
+            <input type="text" ng-model="employee.employmentDetails.compensationDetails.hra" class="form-control">
+        </div>
+        </div><div class="row">
+        <div class="col-sm-3">
+            Conveyance
+        </div><div class="col-sm-3">
+        <input type="text" ng-model="employee.employmentDetails.compensationDetails.conveyance" class="form-control">
+    </div>
+    </div><div class="row">
+        <div class="col-sm-3">
+            Special Allowance
+        </div><div class="col-sm-3">
+        <input type="text" ng-model="employee.employmentDetails.compensationDetails.specialAllowance" class="form-control">
+    </div>
+    </div><div class="row">
+        <div class="col-sm-3">
+            Gross salary
+        </div><div class="col-sm-3">
+        <input type="text" ng-model="employee.employmentDetails.compensationDetails.grossSalary" class="form-control">
+    </div>
+    </div><div class="row">
+        <div class="col-sm-3">
+            TDS
+        </div><div class="col-sm-3">
+        <input type="text" ng-model="employee.employmentDetails.compensationDetails.tds" class="form-control">
+    </div>
+    </div><div class="row">
+        <div class="col-sm-3">
+            Total deduction
+        </div><div class="col-sm-3">
+        <input type="text" ng-model="employee.employmentDetails.compensationDetails.totalDeduction" class="form-control">
+    </div>
+    </div>
 
     </div>
 </div>

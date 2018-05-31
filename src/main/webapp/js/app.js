@@ -22,7 +22,8 @@ app.config(function($routeProvider) {
     })
   .when('/update', {
       templateUrl : 'new',
-      controller  : 'EmployeeController'
+      controller  : 'EmployeeController',
+
    })
   .otherwise({redirectTo: '/'});
 });
@@ -48,13 +49,16 @@ app.service('EmployeeCRUDService', [ '$http', function($http) {
             }
         });
     }
-    this.updateEmployee = function updateEmployee(id, name, email) {
+    this.updateEmployee = function updateEmployee(employee) {
         return $http({
-            method : 'PATCH',
-            url : 'employees/' + id,
+            method : 'PUT',
+            url : 'employees/'+employee.id,
             data : {
-                name : name,
-                email: email
+                name :employee.name,
+                            employeeId :employee.employeeId,
+                            address: employee.address,
+                            employmentDetails: employee.employmentDetails,
+                            personalDetails : employee.personalDetails
             }
         });
     }
@@ -95,8 +99,8 @@ app.service('EmployeeCRUDService', [ '$http', function($http) {
       });
                                                 }
 } ]);
-app.controller('EmployeeController', ['$scope','EmployeeCRUDService','$routeParams',
- function ($scope,EmployeeCRUDService, $routeParams) {
+app.controller('EmployeeController', ['$scope','EmployeeCRUDService','$routeParams','$location',
+ function ($scope,EmployeeCRUDService, $routeParams,$location) {
  $scope.getAllEmployees = function () {
            EmployeeCRUDService.getAllEmployees()
              .then(function success(response) {
@@ -126,16 +130,33 @@ app.controller('EmployeeController', ['$scope','EmployeeCRUDService','$routePara
        $scope.addEmployee = function () {
 
 
+               if(!$routeParams.mode){
+
               EmployeeCRUDService.addEmployee($scope.employee)
                           .then(function success(response) {
                                $scope.employee = response.data;
                               $scope.message='';
                               $scope.errorMessage = '';
+                              $location.path('viewEmployeeDetails?id=');
                               },
                            function error (response) {
                                $scope.message='';
                               $scope.errorMessage = 'Error adding employee!';
                            });
+}else {
+
+ EmployeeCRUDService.updateEmployee($scope.employee)
+                          .then(function success(response) {
+                               $scope.employee = response.data;
+                              $scope.message='';
+                              $scope.errorMessage = '';
+                              $location.path('list');
+                              },
+                           function error (response) {
+                               $scope.message='';
+                              $scope.errorMessage = 'Error updating employee!';
+                           });
+}
 
               };
               $scope.deleteEmployee = function () {
@@ -146,6 +167,7 @@ app.controller('EmployeeController', ['$scope','EmployeeCRUDService','$routePara
 
                                             $scope.message='';
                                             $scope.errorMessage = '';
+                                             $location.path('list');
                                             },
                                          function error (response) {
                                              $scope.message='';

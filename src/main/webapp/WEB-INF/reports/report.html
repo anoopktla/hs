@@ -94,6 +94,9 @@ article {
     display: inline;
     float: left;
     }
+    .amount{
+     text-align:right;
+     }
 
 </style>
 </head>
@@ -107,23 +110,23 @@ article {
                 <img src="/images/hslogo.png" height="100" width="150"></div>
             </div>
     </header>
-
-       <article><table>
-           <tr><td>Employee name:</td><td>{{employee.name.salutation}} {{employee.name.firstName}} {{employee.name.lastName}}</td></tr>
-           <tr><td>Designation:</td><td>{{employee.employmentDetails.designation}}</td></tr>
+<h3 style="text-align:center">Salary slip for the month of May 2018</h3>
+       <article><table style="border:1px;">
+           <tr><td>Employee name:</td><td>{{employee.name.salutation}} {{employee.name.firstName}} {{employee.name.lastName}}</td><td>Employee Id:</td><td>{{employee.employeeId}}</td></tr>
+           <tr><td>Designation:</td><td>{{employee.employmentDetails.designation}}</td><td>Bank name:</td><td>{{employee.employmentDetails.compensationDetails.bankName}}</td></tr>
            <tr><td>Father's name:</td>
-               <td>{{employee.personalDetails.nameOfFather.salutation}} {{employee.personalDetails.nameOfFather.firstName}} {{employee.personalDetails.nameOfFather.lastName}}</td></tr>
-           <tr><td>Pay date: </td><td>{{employee.employmentDetails.compensationDetails.payDate  | date : 'dd-MM-yyyy' }}</td></tr>
-           <tr><td>PAN: </td><td>{{employee.employmentDetails.compensationDetails.pan}}</td></tr>
-           <tr><td>DOJ</td><td>{{employee.employmentDetails.dateOfJoining  | date : 'dd-MM-yyyy'}}</td></tr>
+               <td>{{employee.personalDetails.nameOfFather.salutation}} {{employee.personalDetails.nameOfFather.firstName}} {{employee.personalDetails.nameOfFather.lastName}}</td><td>Account number:</td><td>{{employee.employmentDetails.compensationDetails.accountNumber}}</td></tr>
+           <tr><td>Pay date: </td><td>{{employee.employmentDetails.compensationDetails.payDate  | date : 'dd-MM-yyyy' }}</td><td>Days worked:</td><td>31</td></tr>
+           <tr><td>PAN: </td><td>{{employee.employmentDetails.compensationDetails.pan}}</td><td>Leaves taken:</td><td>31</td></tr>
+           <tr><td>DOJ</td><td>{{employee.employmentDetails.dateOfJoining  | date : 'dd-MM-yyyy'}}</td><td>Leave balance:</td><td>31</td></tr>
        </table>
         <table border="1px;"><tr><td>Earnings</td><td>Amount</td><td>Deductions</td><td>Amount</td></tr>
-            <tr><td>Basic: </td><td>{{employee.employmentDetails.compensationDetails.basicPay}}</td><td>Tax/TDS</td><td>{{employee.employmentDetails.compensationDetails.tds}}</td></tr>
-            <tr><td>HRA : </td><td>{{employee.employmentDetails.compensationDetails.hra}}</td><td></td><td> </td></tr>
-            <tr><td>Conveyance :</td><td>{{employee.employmentDetails.compensationDetails.conveyance}}</td><td> </td><td> </td></tr>
-            <tr><td>Special allowance :</td><td>{{employee.employmentDetails.compensationDetails.specialAllowance}}</td><td> </td><td> </td></tr>
-            <tr><td>Gross salary:</td><td>{{employee.employmentDetails.compensationDetails.grossSalary}}</td>
-                <td>Total deductions:</td><td>{{employee.employmentDetails.compensationDetails.totalDeduction}}</td></tr>
+            <tr><td>Basic: </td><td class="amount">{{employee.employmentDetails.compensationDetails.basicPay}}</td><td>Tax/TDS</td><td  class="amount">{{employee.employmentDetails.compensationDetails.tds}}</td></tr>
+            <tr><td>HRA : </td><td  class="amount">{{employee.employmentDetails.compensationDetails.hra}}</td><td></td><td> </td></tr>
+            <tr><td>Conveyance :</td><td  class="amount">{{employee.employmentDetails.compensationDetails.conveyance}}</td><td> </td><td> </td></tr>
+            <tr><td>Special allowance :</td><td  class="amount">{{employee.employmentDetails.compensationDetails.specialAllowance}}</td><td> </td><td> </td></tr>
+            <tr><td>Gross salary:</td><td  class="amount">{{employee.employmentDetails.compensationDetails.grossSalary}}</td>
+                <td>Total deductions:</td><td  class="amount">{{employee.employmentDetails.compensationDetails.totalDeduction}}</td></tr>
         </table>
 
     </article>
@@ -153,18 +156,15 @@ article {
                 <br>Kerala– 682303, India
             </td>
             <td>
-                Heidelsoft Tech. Pvt. Ltd.
-                <br>Jyothirmaya Building
-                <br>2nd Floor, Wing-2, Office–1,
-                <br>Infopark SEZ Phase-II
-                <br>Kerala– 682303, India
+                Managing Director: Dr. Joshy Parookkaran<br>
+                Director : Günter Wiskot<br><br><br>
+
             </td>
             <td>
-                Heidelsoft Tech. Pvt. Ltd.
-                <br>Jyothirmaya Building
-                <br>2nd Floor, Wing-2, Office–1,
-                <br>Infopark SEZ Phase-II
-                <br>Kerala– 682303, India
+                Bank : HDFC Bank<br>
+                A/c    : 50200011022711<br>
+                IFSC : HDFCINBBXXX<br>
+                Bank Address : <br>HDFC Bank<br>Palarivattom, Kochi<br>Kerala – 682025,<br>India
             </td>
         </tr>
 
