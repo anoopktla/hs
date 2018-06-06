@@ -25,7 +25,7 @@ app.config(function($routeProvider) {
       controller  : 'EmployeeController',
 
    })
-  .otherwise({redirectTo: '/'});
+   .otherwise({redirectTo: '/'});
 });
 app.service('EmployeeCRUDService', [ '$http', function($http) {
 
@@ -45,7 +45,8 @@ app.service('EmployeeCRUDService', [ '$http', function($http) {
             employeeId :employee.employeeId,
             address: employee.address,
             employmentDetails: employee.employmentDetails,
-            personalDetails : employee.personalDetails
+            personalDetails : employee.personalDetails,
+            leaveDetails : employee.leaveDetails
             }
         });
     }
@@ -58,7 +59,9 @@ app.service('EmployeeCRUDService', [ '$http', function($http) {
                             employeeId :employee.employeeId,
                             address: employee.address,
                             employmentDetails: employee.employmentDetails,
-                            personalDetails : employee.personalDetails
+                            personalDetails : employee.personalDetails,
+                            leaveDetails : employee.leaveDetails
+
             }
         });
     }
@@ -115,9 +118,10 @@ app.controller('EmployeeController', ['$scope','EmployeeCRUDService','$routePara
 
        };
        $scope.getEmployee = function () {
-       EmployeeCRUDService.getEmployee($routeParams.id)
-                    .then(function success(response) {
+                 EmployeeCRUDService.getEmployee($routeParams.id)
+                                     .then(function success(response) {
                         $scope.employee = response.data;
+                        $scope.monthName=$routeParams.monthName;
                         $scope.message='';
                         $scope.errorMessage = '';
                         },
@@ -175,6 +179,25 @@ app.controller('EmployeeController', ['$scope','EmployeeCRUDService','$routePara
                                          });
 
                             };
+
+         $scope.generateReport = function (){
+
+         const monthNames = ["January", "February", "March", "April", "May", "June",
+           "July", "August", "September", "October", "November", "December"
+         ];
+
+         var dateArray = $scope.reportDate.split("/");
+         var numberOfDays = new Date(dateArray[1],dateArray[0], 0).getDate();
+         $scope.monthName = monthNames[parseInt(dateArray[0])];
+         $scope.year = dateArray[1];
+         var reportUrl = '/reports/report?id='+$scope.employee.id+'&month='+$scope.monthName+'&year='+$scope.year+'&numberOfDays='+numberOfDays;
+         window.open(reportUrl);
+         console.log($scope.monthName);
+         console.log($scope.year);
+         };
+
+
+
 
        $scope.getAllStaticValues = function () {
        EmployeeCRUDService.getAllDesignations()

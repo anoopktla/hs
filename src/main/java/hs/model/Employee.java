@@ -16,6 +16,7 @@ public class Employee {
     private Address address;
     private EmploymentDetails employmentDetails;
     private PersonalDetails personalDetails;
+    private  LeaveDetails leaveDetails;
 
     public Name getName() {
         return name;
@@ -73,6 +74,11 @@ public class Employee {
         this.joiningDate = joiningDate;
     }
 
+    public LeaveDetails getLeaveDetails() {
+        return leaveDetails;
+    }
 
-
+    public void setLeaveDetails(LeaveDetails leaveDetails) {
+        this.leaveDetails = leaveDetails;
+    }
 }

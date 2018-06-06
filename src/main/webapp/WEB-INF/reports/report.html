@@ -15,55 +15,24 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
     <script src="../js/report.js"></script>
+    <script src="js/app.js"></script>
     <style>
-
-
-    @media print /*--This is for Print--*/
-{
-    footer
-    {
-        display: none;
-    }
-
-}
-
-@media screen /*--This is for Print Preview Screen--*/
-{
-
-.footertbl {
-         display: none;
-}
-
-}
-
-.footertbl  td, th {
-    width: 554px;
-    padding-left: 10px;
-}
-
 
 
 div.container {
     width: 100%;
-    border: 1px solid gray;
+
 }
 
 header {
-    padding: 1em;
+   <!-- padding: 1em;-->
 
 
     clear: left;
-    text-align: center;
-    border: 1px solid gray;
-}
-footer {
-    padding: 0em;
+   <!-- text-align: center;-->
 
-
-    clear: left;
-    text-align: center;
-    border: 1px solid gray;
 }
+
 
 nav {
     float: left;
@@ -82,93 +51,105 @@ nav ul a {
 }
 
 article {
-    border-left: 1px solid gray;
+
     padding: 1em;
     overflow: hidden;
     padding-top:6em;
     padding-bottom:10em;
 }
 
-.footer-class {
-    width: 463px;
-    display: inline;
-    float: left;
-    }
-    .amount{
+.amount{
      text-align:right;
      }
+h3{
+padding-bottom:67px;
+}
+h2{
+text-align:center;}
+}
+
 
 </style>
+    <script>
+       $( document ).ready(function() {
+       alert('hi');
+       }
+    </script>
 </head>
-<div>
 <div ng-controller="CRUDCtrl" class="container" data-ng-init="getEmployee()">
 
-    <header>
-        <div class="row">
-            <div class="col-md-11" > <h3>Heidelsoft Technologies pvt ltd</h3></div>
-            <div class="col-md-1" style="float:right;">
-                <img src="/images/hslogo.png" height="100" width="150"></div>
-            </div>
-    </header>
-<h3 style="text-align:center">Salary slip for the month of May 2018</h3>
-       <article><table style="border:1px;">
-           <tr><td>Employee name:</td><td>{{employee.name.salutation}} {{employee.name.firstName}} {{employee.name.lastName}}</td><td>Employee Id:</td><td>{{employee.employeeId}}</td></tr>
-           <tr><td>Designation:</td><td>{{employee.employmentDetails.designation}}</td><td>Bank name:</td><td>{{employee.employmentDetails.compensationDetails.bankName}}</td></tr>
-           <tr><td>Father's name:</td>
-               <td>{{employee.personalDetails.nameOfFather.salutation}} {{employee.personalDetails.nameOfFather.firstName}} {{employee.personalDetails.nameOfFather.lastName}}</td><td>Account number:</td><td>{{employee.employmentDetails.compensationDetails.accountNumber}}</td></tr>
-           <tr><td>Pay date: </td><td>{{employee.employmentDetails.compensationDetails.payDate  | date : 'dd-MM-yyyy' }}</td><td>Days worked:</td><td>31</td></tr>
-           <tr><td>PAN: </td><td>{{employee.employmentDetails.compensationDetails.pan}}</td><td>Leaves taken:</td><td>31</td></tr>
-           <tr><td>DOJ</td><td>{{employee.employmentDetails.dateOfJoining  | date : 'dd-MM-yyyy'}}</td><td>Leave balance:</td><td>31</td></tr>
+<header>
+        <div class="row"><div class="col-lg-1" style="float:right;">
+            <img src="/images/hslogo.png" height="100" width="150"></div>
+        </div><div class="row">
+            <div class="col-lg-12" > <h2>Heidelsoft Technologies Pvt. Ltd.</h2></div>
+</div>
+</header>
+<article>
+<h3 style="text-align:center">Salary slip for {{monthName}} MAY 2018</h3>
+
+      <table style="width:100%;">
+          <tr><td>&nbsp;Employee name</td><td>:</td><td>&nbsp;{{employee.name.salutation}} {{employee.name.firstName}} {{employee.name.lastName}}</td>
+              <td>&nbsp;Employee Id</td><td>:</td><td>&nbsp;{{employee.employeeId}}</td>
+          </tr>
+           <tr><td>&nbsp;Designation</td><td>:</td>
+               <td>&nbsp;{{employee.employmentDetails.designation}}</td>
+               <td>&nbsp;Bank name</td><td>:</td><td>&nbsp;{{employee.employmentDetails.compensationDetails.bankName}}</td>
+           </tr>
+           <tr><td>&nbsp;Father's name</td><td>:</td>
+               <td>&nbsp;{{employee.personalDetails.nameOfFather.salutation}} {{employee.personalDetails.nameOfFather.firstName}} {{employee.personalDetails.nameOfFather.lastName}}</td>
+               <td>&nbsp;Account number</td><td>:</td><td>&nbsp;{{employee.employmentDetails.compensationDetails.accountNumber}}</td>
+           </tr>
+           <tr><td>&nbsp;Pay date</td><td>:</td><td>&nbsp;{{employee.employmentDetails.compensationDetails.payDate  | date : 'dd-MM-yyyy' }}</td>
+               <td>&nbsp;Working days</td><td>:</td><td>&nbsp;31</td>
+           </tr>
+           <tr><td>&nbsp;PAN</td><td>:</td><td>&nbsp;{{employee.employmentDetails.compensationDetails.pan}}</td><td>&nbsp;Leaves taken</td><td>:</td>
+               <td>&nbsp;{{employee.leaveDetails.leaveTaken}}</td>
+           </tr>
+           <tr><td>&nbsp;Date of joining</td><td>:</td><td>&nbsp;{{employee.employmentDetails.dateOfJoining  | date : 'dd-MM-yyyy'}}</td>
+               <td>&nbsp;Leave balance</td><td>:</td><td>&nbsp;{{employee.leaveDetails.leaveBalance}}</td></tr>
        </table>
-        <table border="1px;"><tr><td>Earnings</td><td>Amount</td><td>Deductions</td><td>Amount</td></tr>
-            <tr><td>Basic: </td><td class="amount">{{employee.employmentDetails.compensationDetails.basicPay}}</td><td>Tax/TDS</td><td  class="amount">{{employee.employmentDetails.compensationDetails.tds}}</td></tr>
-            <tr><td>HRA : </td><td  class="amount">{{employee.employmentDetails.compensationDetails.hra}}</td><td></td><td> </td></tr>
-            <tr><td>Conveyance :</td><td  class="amount">{{employee.employmentDetails.compensationDetails.conveyance}}</td><td> </td><td> </td></tr>
-            <tr><td>Special allowance :</td><td  class="amount">{{employee.employmentDetails.compensationDetails.specialAllowance}}</td><td> </td><td> </td></tr>
-            <tr><td>Gross salary:</td><td  class="amount">{{employee.employmentDetails.compensationDetails.grossSalary}}</td>
-                <td>Total deductions:</td><td  class="amount">{{employee.employmentDetails.compensationDetails.totalDeduction}}</td></tr>
+        <table style="width:100%;margin-top:40px;" border="2px;"><tr>
+            <td style="text-align:center;font-weight:bold">Earnings</td>
+            <td style="text-align:center;font-weight:bold">Amount</td>
+            <td style="text-align:center;font-weight:bold">Deductions</td>
+            <td style="text-align:center;font-weight:bold">Amount</td></tr>
+            <tr><td>&nbsp;Basic</td><td class="amount">{{employee.employmentDetails.compensationDetails.basicPay}}&nbsp;</td>
+                <td>&nbsp;Tax/TDS</td><td  class="amount">{{employee.employmentDetails.compensationDetails.tds}}&nbsp;</td></tr>
+            <tr><td>&nbsp;HRA</td><td  class="amount">{{employee.employmentDetails.compensationDetails.hra}}&nbsp;</td><td></td><td> </td></tr>
+            <tr><td>&nbsp;Conveyance</td><td  class="amount">{{employee.employmentDetails.compensationDetails.conveyance}}&nbsp;</td><td> </td><td> </td></tr>
+            <tr><td>&nbsp;Special allowance</td><td  class="amount">{{employee.employmentDetails.compensationDetails.specialAllowance}}&nbsp;</td><td> </td><td> </td></tr>
+            <tr><td>&nbsp;Gross salary</td><td  class="amount">{{employee.employmentDetails.compensationDetails.grossSalary}}&nbsp;</td>
+                <td>&nbsp;Total deductions</td><td  class="amount">{{employee.employmentDetails.compensationDetails.totalDeduction}}&nbsp;</td></tr>
         </table>
 
-    </article>
+</article>
+</div>
+<footer>
+    <div class="row" style="font-size:10px;">
+        <div class="col-xs-3">
+            Heidelsoft Tech. Pvt. Ltd.
+            <br>Jyothirmaya Building,
+           <br>Infopark Phase-II
+            <br>Kerala– 682303, India
+        </div>
+        <div class="col-xs-3">
+            Managing Director:<br> Dr. Joshy Parookkaran<br><span style="padding-top:10px;">Director :Günter Wiskot</span>
+        </div>
+        <div class="col-xs-3"> Bank : HDFC Bank<br> Palarivattom, Kochi<br>Kerala – 682025,India<br>
+            A/C    : 50200011022711 <br> IFSC : HDFCINBBXXX<br>
 
-    <footer>
+        </div>
+        <div class="col-xs-3">
+            CIN:U72200KL2015PTC038068<br>Tel:+914842971190
+            <br>email:info@heidelsoft.de
+        </div>
+    </div>
+    </div>
 
-                    <div class="footer-class">Heidelsoft Tech. Pvt. Ltd.
-                        <br>Jyothirmaya Building
-                        <br>2nd Floor, Wing-2, Office–1,
-                        <br>Infopark SEZ Phase-II
-                        <br>Kerala– 682303, India
-                    </div>
-                    <div  class="footer-class">Managing Director: <br>Dr. Joshy Parookkaran<br>Director :<br> Günter Wiskot</div>
-                    <div  class="footer-class">Bank : HDFC Bank<br>A/c    : 50200011022711<br>IFSC : HDFCINBBXXX</div>
-                    <div  class="footer-class">Bank Address : <br>HDFC Bank<br>Palarivattom, Kochi<br>Kerala – 682025,<br>India</div>
+</footer>
 
 
-    </footer>
 
-    <table class="footertbl">
-        <tr>
-            <td>
-                Heidelsoft Tech. Pvt. Ltd.
-                <br>Jyothirmaya Building
-                <br>2nd Floor, Wing-2, Office–1,
-                <br>Infopark SEZ Phase-II
-                <br>Kerala– 682303, India
-            </td>
-            <td>
-                Managing Director: Dr. Joshy Parookkaran<br>
-                Director : Günter Wiskot<br><br><br>
-
-            </td>
-            <td>
-                Bank : HDFC Bank<br>
-                A/c    : 50200011022711<br>
-                IFSC : HDFCINBBXXX<br>
-                Bank Address : <br>HDFC Bank<br>Palarivattom, Kochi<br>Kerala – 682025,<br>India
-            </td>
-        </tr>
-
-    </table>
-</div></div>
 </body>
 </html>

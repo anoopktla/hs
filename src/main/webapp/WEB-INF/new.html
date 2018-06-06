@@ -140,7 +140,7 @@
                 <!--<input type="datetime" ng-model="employee.employmentDetails.dateOfJoining">-->
                 <div class="input-group date" data-provide="datepicker">
                     <input type="datetime" ng-model="employee.employmentDetails.dateOfJoining"
-                           class="form-control"
+
                            class="form-control"/>
                     <div class="input-group-addon">
                         <span class="glyphicon glyphicon-th"></span>
@@ -199,13 +199,6 @@
             <div class="col-sm-3">
                 Basic pay
             </div><div class="col-sm-3">
-            <input type="text" ng-model="employee.employmentDetails.compensationDetails.accountNumber" class="form-control">
-        </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-3">
-                Basic pay
-            </div><div class="col-sm-3">
             <input type="text" ng-model="employee.employmentDetails.compensationDetails.basicPay" class="form-control">
         </div>
         </div>
@@ -249,6 +242,20 @@
 
     </div>
 </div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">Leave details</div>
+    <div class="panel-body">
+       <div class="row">
+           <div class="col-sm-3">Leave balance : </div><div class="col-sm-3"> <input class="form-control" type="text" ng-model="employee.leaveDetails.leaveBalance"></div>
+       </div>
+        <div class="row">
+            <div class="col-sm-3"> Leave taken : </div><div class="col-sm-3"><input type="text" class="form-control" ng-model="employee.leaveDetails.leaveTaken"></div>
+        </div>
+    </div>
+</div>
+
+
 <div class="row">
     <button ng-click="addEmployee();" class="btn">Save
     </button>
