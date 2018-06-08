@@ -188,7 +188,7 @@ app.controller('EmployeeController', ['$scope','EmployeeCRUDService','$routePara
 
          var dateArray = $scope.reportDate.split("/");
          var numberOfDays = new Date(dateArray[1],dateArray[0], 0).getDate();
-         $scope.monthName = monthNames[parseInt(dateArray[0])];
+         $scope.monthName = monthNames[parseInt(dateArray[0])-1];
          $scope.year = dateArray[1];
          var reportUrl = '/reports/report?id='+$scope.employee.id+'&month='+$scope.monthName+'&year='+$scope.year+'&numberOfDays='+numberOfDays;
          window.open(reportUrl);

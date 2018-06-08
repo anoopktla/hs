@@ -2,7 +2,6 @@ package  hs.enums;
 
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 public enum Designation {
@@ -11,7 +10,7 @@ public enum Designation {
     ASE("Assistant systems engineer","ASE");
     private String designation;
 
-    @JsonIgnore
+
     private  String description;
 
 

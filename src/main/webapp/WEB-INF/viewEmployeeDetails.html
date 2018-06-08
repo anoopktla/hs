@@ -176,23 +176,20 @@
                         </div>
                                           </div>
                     </div>
-                    <a href="/reports/report?id={{employee.id}}&reportDate={{reportDate}}">
-                        generate
-                    </a>
-                    <button ng-click="generateReport();">Generate</button>
+                    <button class="btn btn-primary" ng-click="generateReport();">Generate</button>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-2">
                 <div class="row">
-                    <a href="#/update?id={{employee.id}}&mode=update">Update </a>
+                    <a href="#/update?id={{employee.id}}&mode=update"><button class="btn btn-primary" >update</button> </a>
                 </div>
                 <div class="row">
-                    <button type="button" class="btn btn-primary"  ng-click="deleteEmployee()">Delete</button>
+                    <button type="button" class="btn btn-danger"  ng-click="deleteEmployee()">Delete</button>
                 </div>
                 <div class="row">
-                    <button onclick="window.location.href='#/list';" class="btn">Cancel
+                    <button onclick="window.location.href='#/list';" class="btn btn-primary" >Cancel
                     </button>
                     </button>
                 </div>

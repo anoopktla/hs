@@ -5,18 +5,18 @@
     <title>Hs</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
     <title>Hs</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
     <script src="../js/report.js"></script>
-    <script src="js/app.js"></script>
-    <style>
+     <style>
 
 
 div.container {
@@ -54,8 +54,8 @@ article {
 
     padding: 1em;
     overflow: hidden;
-    padding-top:6em;
-    padding-bottom:10em;
+    padding-top:1em;
+    padding-bottom:20em;
 }
 
 .amount{
@@ -70,23 +70,20 @@ text-align:center;}
 
 
 </style>
-    <script>
-       $( document ).ready(function() {
-       alert('hi');
-       }
-    </script>
+
 </head>
 <div ng-controller="CRUDCtrl" class="container" data-ng-init="getEmployee()">
 
 <header>
         <div class="row"><div class="col-lg-1" style="float:right;">
-            <img src="/images/hslogo.png" height="100" width="150"></div>
+            <img src="/images/hslogo.png" height="103" width="146"></div>
         </div><div class="row">
             <div class="col-lg-12" > <h2>Heidelsoft Technologies Pvt. Ltd.</h2></div>
 </div>
+    <h3 style="text-align:center">Salary slip for {{month}} {{year}}</h3>
 </header>
 <article>
-<h3 style="text-align:center">Salary slip for {{monthName}} MAY 2018</h3>
+
 
       <table style="width:100%;">
           <tr><td>&nbsp;Employee name</td><td>:</td><td>&nbsp;{{employee.name.salutation}} {{employee.name.firstName}} {{employee.name.lastName}}</td>
@@ -101,7 +98,7 @@ text-align:center;}
                <td>&nbsp;Account number</td><td>:</td><td>&nbsp;{{employee.employmentDetails.compensationDetails.accountNumber}}</td>
            </tr>
            <tr><td>&nbsp;Pay date</td><td>:</td><td>&nbsp;{{employee.employmentDetails.compensationDetails.payDate  | date : 'dd-MM-yyyy' }}</td>
-               <td>&nbsp;Working days</td><td>:</td><td>&nbsp;31</td>
+               <td>&nbsp;Working days</td><td>:</td><td>&nbsp;{{numberOfDays}}</td>
            </tr>
            <tr><td>&nbsp;PAN</td><td>:</td><td>&nbsp;{{employee.employmentDetails.compensationDetails.pan}}</td><td>&nbsp;Leaves taken</td><td>:</td>
                <td>&nbsp;{{employee.leaveDetails.leaveTaken}}</td>
