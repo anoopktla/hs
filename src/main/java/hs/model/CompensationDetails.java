@@ -18,6 +18,7 @@ public class CompensationDetails {
     private int grossSalary;
     private int tds;
     private int totalDeduction;
+    private String grossSalaryInWords;
 
     public int getBasicPay() {
         return basicPay;
@@ -105,5 +106,13 @@ public class CompensationDetails {
 
     public void setAccountNumber(int accountNumber) {
         this.accountNumber = accountNumber;
+    }
+
+    public String getGrossSalaryInWords() {
+        return grossSalaryInWords;
+    }
+
+    public void setGrossSalaryInWords(String grossSalaryInWords) {
+        this.grossSalaryInWords = grossSalaryInWords;
     }
 }

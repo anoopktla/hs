@@ -5,8 +5,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 public enum Salutation {
     Mr("Mr"),
-    Mrs("Mrs"),
     Miss("Miss"),
+    Mrs("Mrs"),
     Dr("Dr");
     private String salutation;
     Salutation(String salutation){

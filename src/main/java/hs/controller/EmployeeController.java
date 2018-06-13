@@ -4,6 +4,7 @@ import hs.exception.ResourceNotFoundException;
 import hs.model.Employee;
 import hs.dao.EmployeeRepository;
 import hs.model.Name;
+import hs.util.NumberFormatUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -25,7 +26,10 @@ public class EmployeeController {
     }
     @GetMapping("/employees/{id}")
     public Optional<Employee> getemployeesById(@PathVariable(value = "id") String id) {
-        return employeeRepository.findById(id);
+        Optional<Employee> emp = employeeRepository.findById(id);
+        emp.get().getEmploymentDetails().getCompensationDetails().setGrossSalaryInWords(
+                NumberFormatUtil.numberToWords(emp.get().getEmploymentDetails().getCompensationDetails().getGrossSalary()));
+        return  emp;
     }
     @PostMapping("/employees")
     public Employee createEmployees(@Valid @RequestBody Employee employee) {

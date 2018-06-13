@@ -126,7 +126,7 @@
             </div>
             <div class="col-sm-3">
                 <select ng-model="employee.employmentDetails.designation" class="form-control"
-                        ng-options="designation for designation in designations track by designation">
+                        ng-options="designation.designation for designation in designations track by designation.description">
                     <option value="">select one</option>
                 </select>
             </div>
@@ -256,9 +256,9 @@
 </div>
 
 
-<div class="row">
-    <button ng-click="addEmployee();" class="btn">Save
-    </button>
-    <button onclick="window.location.href='#/list';" class="btn">Cancel
-    </button>
+<div class="row"><div class="col-lg-1">
+    <button ng-click="addEmployee();" class="btn btn-primary">Save
+    </button></div><div class="col-lg-1">
+    <button onclick="window.location.href='#/list';" class="btn btn-primary">Cancel
+    </button></div>
 </div>

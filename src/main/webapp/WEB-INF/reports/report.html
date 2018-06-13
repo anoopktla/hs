@@ -2,7 +2,7 @@
 <html ng-app="report">
 <head>
 
-    <title>Hs</title>
+    <title>Heidelsoft - salary slip</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
@@ -90,7 +90,7 @@ text-align:center;}
               <td>&nbsp;Employee Id</td><td>:</td><td>&nbsp;{{employee.employeeId}}</td>
           </tr>
            <tr><td>&nbsp;Designation</td><td>:</td>
-               <td>&nbsp;{{employee.employmentDetails.designation}}</td>
+               <td>&nbsp;{{employee.employmentDetails.designation.designation}}</td>
                <td>&nbsp;Bank name</td><td>:</td><td>&nbsp;{{employee.employmentDetails.compensationDetails.bankName}}</td>
            </tr>
            <tr><td>&nbsp;Father's name</td><td>:</td>
@@ -100,7 +100,7 @@ text-align:center;}
            <tr><td>&nbsp;Pay date</td><td>:</td><td>&nbsp;{{employee.employmentDetails.compensationDetails.payDate  | date : 'dd-MM-yyyy' }}</td>
                <td>&nbsp;Working days</td><td>:</td><td>&nbsp;{{numberOfDays}}</td>
            </tr>
-           <tr><td>&nbsp;PAN</td><td>:</td><td>&nbsp;{{employee.employmentDetails.compensationDetails.pan}}</td><td>&nbsp;Leaves taken</td><td>:</td>
+           <tr><td>&nbsp;PAN</td><td>:</td><td>&nbsp;{{employee.employmentDetails.compensationDetails.pan}}</td><td>&nbsp;Days worked</td><td>:</td>
                <td>&nbsp;{{employee.leaveDetails.leaveTaken}}</td>
            </tr>
            <tr><td>&nbsp;Date of joining</td><td>:</td><td>&nbsp;{{employee.employmentDetails.dateOfJoining  | date : 'dd-MM-yyyy'}}</td>
@@ -119,7 +119,8 @@ text-align:center;}
             <tr><td>&nbsp;Gross salary</td><td  class="amount">{{employee.employmentDetails.compensationDetails.grossSalary}}&nbsp;</td>
                 <td>&nbsp;Total deductions</td><td  class="amount">{{employee.employmentDetails.compensationDetails.totalDeduction}}&nbsp;</td></tr>
         </table>
-
+    <div class="row"><div class="col-lg-12">
+        <h5><span style="font-weight:bold">Net salary :</span> {{employee.employmentDetails.compensationDetails.grossSalary}}  <span style="font-weight:bold">/- Rs    (in words) </span> {{employee.employmentDetails.compensationDetails.grossSalaryInWords}} <span style="font-weight:bold">rupees only</span></h5></div></div>
 </article>
 </div>
 <footer>

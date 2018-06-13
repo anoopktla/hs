@@ -1,13 +1,17 @@
 package  hs.enums;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonValue;
 
-
-
+@JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum Designation {
 
     SSE("Senior software engineer","SSE"),
-    ASE("Assistant systems engineer","ASE");
+    ASE("Assistant systems engineer","ASE"),
+    EA("enterprise architect","EA");
+
+
     private String designation;
 
 

@@ -34,6 +34,7 @@ public class ResourcesController {
     @GetMapping("/salutations")
     public List<Salutation> getAllSalutations() {
         return Arrays.asList(Salutation.values());
+
     }
 
     @GetMapping("/countries")

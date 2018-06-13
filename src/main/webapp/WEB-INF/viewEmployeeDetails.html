@@ -74,7 +74,7 @@
                     <tr>
                     <tr>
                         <td class="col-sm-3">Designation</td>
-                        <td class="col-sm-3">{{employee.employmentDetails.designation}}</td>
+                        <td class="col-sm-3">{{employee.employmentDetails.designation.designation}}</td>
                     </tr>
                     <tr>
                         <td class="col-sm-3">Date of joining</td>
@@ -166,29 +166,29 @@
                 <div class="panel-heading">Salary certificate
                 </div>
                 <div class="panel-body">
-                                      <div class="row">
-                                          <div class="col-sm-3">
-                        <div class="input-group date" data-provide="datepicker"  data-date-format="mm/yyyy" startView= "month" >
-                            <input type="datetime"  id="reportDate"class="form-control" data-date-format="MM/yyyy" ng-model="reportDate"/>
-                            <div class="input-group-addon">
-                                <span class="glyphicon glyphicon-th"></span>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="input-group date" data-provide="datepicker"  data-date-format="mm/yyyy" startView= "month" >
+                                <input type="datetime"  id="reportDate"class="form-control" data-date-format="MM/yyyy" ng-model="reportDate"/>
+                                <div class="input-group-addon">
+                                    <span class="glyphicon glyphicon-th"></span>
+                                </div>
                             </div>
-                        </div>
-                                          </div>
+                        </div><div class="col-sm-3"> <button class="btn btn-primary" ng-click="generateReport();">Generate</button></div>
                     </div>
-                    <button class="btn btn-primary" ng-click="generateReport();">Generate</button>
+
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-2">
-                <div class="row">
+
                     <a href="#/update?id={{employee.id}}&mode=update"><button class="btn btn-primary" >update</button> </a>
-                </div>
-                <div class="row">
+            </div>
+              <div class="col-sm-2">
                     <button type="button" class="btn btn-danger"  ng-click="deleteEmployee()">Delete</button>
                 </div>
-                <div class="row">
+               <div class="col-sm-2">
                     <button onclick="window.location.href='#/list';" class="btn btn-primary" >Cancel
                     </button>
                     </button>
