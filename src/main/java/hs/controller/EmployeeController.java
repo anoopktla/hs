@@ -27,10 +27,13 @@ public class EmployeeController {
     @GetMapping("/employees/{id}")
     public Optional<Employee> getemployeesById(@PathVariable(value = "id") String id) {
         Optional<Employee> emp = employeeRepository.findById(id);
-        if(emp.isPresent()){
-            emp.get().getEmploymentDetails().getCompensationDetails().setGrossSalaryInWords(
-                    NumberFormatUtil.numberToWords(emp.get().getEmploymentDetails().getCompensationDetails().getGrossSalary()));
-        }
+        emp.ifPresent(employee ->emp.get().getEmploymentDetails()
+                .getCompensationDetails().setGrossSalaryInWords(NumberFormatUtil
+                        .numberToWords(emp.get()
+                                .getEmploymentDetails()
+                                .getCompensationDetails()
+                                .getGrossSalary())) );
+
         return  emp;
     }
     @PostMapping("/employees")
